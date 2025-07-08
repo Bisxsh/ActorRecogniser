@@ -1,0 +1,19 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+urlencoding = "2.1"
+actix-web = "4"
+actix-cors = "0.6" 
+serde = { version = "1.0", features = ["derive"] } 
+serde_json = "1.0" 
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] } 
+reqwest = { version = "0.12", features = ["json", "multipart"] } 
+dotenvy = "0.15" 
+env_logger = "0.11" 
+futures-util = "0.3.31"
+actix-multipart = "0.7.2"
+aws-sdk-rekognition = "1.78.0"
+aws-config = "1.8.1"
