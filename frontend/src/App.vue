@@ -5,6 +5,10 @@
 
       <ImageUploader @actor-identified="handleActorIdentified" />
 
+      <div v-if="result && (!result.matches || result.matches.length === 0)" class="no-actor-error">
+        Actor not identified, try another image.
+      </div>
+
       <ActorList
         :actors="result?.matches || []"
         :selected-actor="selectedActor"
@@ -92,6 +96,19 @@ h1 {
   color: #222;
   margin: 0;
 }
+
+.no-actor-error {
+  color: #d40000;
+  background: #fff0f0;
+  border: 1px solid #ffd6d6;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  margin: 1.5rem 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 400px;
+}
 </style>
 
 <style>
@@ -107,9 +124,11 @@ body {
 }
 
 #app {
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* width: 100%; */
+  /* min-height: 100%; */
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
+  padding: 0;
+  margin: 0;
 }
 </style>
