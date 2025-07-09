@@ -4,9 +4,6 @@ target/
 .vscode/
 cypress/
 public/
-src/
-backend/
-frontend/
 
 # Environment variables
 .env

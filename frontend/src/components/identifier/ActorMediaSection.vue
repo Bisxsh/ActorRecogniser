@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import MediaCard from './MediaCard.vue'
-import type { Actor, Media, ActorMedia } from '../types'
+import type { Actor, Media, ActorMedia } from '../../types'
 
 interface Props {
   actor: Actor

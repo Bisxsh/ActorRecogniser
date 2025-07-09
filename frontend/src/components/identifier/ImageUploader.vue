@@ -1,6 +1,12 @@
 <template>
   <div class="image-uploader-outer">
-    <div class="image-uploader-box">
+    <div
+      class="image-uploader-box"
+      @dragover.prevent="dragActive = true"
+      @dragleave.prevent="dragActive = false"
+      @drop.prevent="onDrop"
+      :class="{ 'drag-active': dragActive }"
+    >
       <input
         id="image-input"
         type="file"
@@ -10,11 +16,9 @@
         style="display: none"
         capture="environment"
       />
-      <!-- Hide uploader UI when cropper is visible -->
-      <template v-if="!(imageUrl && isImage)">
-        <div class="upload-area" @click="triggerFileInput">
+      <template v-if="dragActive && !(imageUrl && isImage)">
+        <div class="drop-message">
           <div class="upload-icon">
-            <!-- Simple cloud upload SVG icon -->
             <svg
               width="40"
               height="40"
@@ -45,51 +49,97 @@
               />
             </svg>
           </div>
-          <div class="upload-label">Paste, drag or tap to upload photo</div>
-          <div class="upload-subtitle">PNG or JPG</div>
+          <div class="drop-message-text">Drop an image here</div>
         </div>
-        <div class="divider-row">
-          <div class="divider"></div>
-          <span class="divider-text">OR</span>
-          <div class="divider"></div>
-        </div>
-        <button class="camera-btn" type="button" @click="openCamera">Open camera</button>
       </template>
-      <!-- Camera Modal -->
-      <div v-if="showCamera" class="camera-modal">
-        <div class="camera-modal-content">
-          <video ref="videoRef" autoplay playsinline class="camera-video"></video>
-          <div class="camera-controls">
-            <button class="capture-btn" @click="capturePhoto">Take Photo</button>
-            <button class="close-btn" @click="closeCamera">Cancel</button>
+      <template v-else>
+        <!-- Hide uploader UI when cropper is visible -->
+        <template v-if="!(imageUrl && isImage)">
+          <div class="upload-area" @click="triggerFileInput">
+            <div class="upload-icon">
+              <!-- Simple cloud upload SVG icon -->
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 16l-4-4-4 4"
+                  stroke="#b0b0b0"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 12v7"
+                  stroke="#b0b0b0"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 16.25"
+                  stroke="#b0b0b0"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="upload-label">Paste, drag or tap to upload photo</div>
+            <div class="upload-subtitle">PNG or JPG</div>
+          </div>
+          <div class="divider-row">
+            <div class="divider"></div>
+            <span class="divider-text">OR</span>
+            <div class="divider"></div>
+          </div>
+          <button class="camera-btn" type="button" @click="openCamera">Open camera</button>
+        </template>
+        <!-- ...rest of uploader UI (camera modal, cropper, etc.)... -->
+        <div v-if="showCamera" class="camera-modal">
+          <div class="camera-modal-content">
+            <video ref="videoRef" autoplay playsinline class="camera-video"></video>
+            <div class="camera-controls">
+              <button class="capture-btn" @click="capturePhoto">Take Photo</button>
+              <button class="close-btn" @click="closeCamera">Cancel</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Cropper with X button above -->
-      <div v-if="imageUrl && isImage" class="cropper-area-wrapper">
-        <div class="remove-image-row">
-          <button class="close-cropper-btn" @click="deleteImage" title="Remove image">
-            &times;
-          </button>
-          <span class="remove-image-label">Remove image</span>
+        <div v-if="imageUrl && isImage" class="cropper-area-wrapper">
+          <div class="remove-image-row">
+            <button class="close-cropper-btn" @click="deleteImage" title="Remove image">
+              &times;
+            </button>
+            <span class="remove-image-label">Remove image</span>
+          </div>
+          <div class="cropper-area">
+            <Cropper
+              ref="cropperRef"
+              :src="imageUrl"
+              :stencil-props="{ aspectRatio: 1 }"
+              :auto-zoom="true"
+              :resize-image="true"
+              class="cropper"
+              @change="onCrop"
+            />
+          </div>
         </div>
-        <div class="cropper-area">
-          <Cropper
-            ref="cropperRef"
-            :src="imageUrl"
-            :stencil-props="{ aspectRatio: 1 }"
-            :auto-zoom="true"
-            :resize-image="true"
-            class="cropper"
-            @change="onCrop"
+        <div v-if="pdfName && !isImage" class="preview pdf-preview">
+          <span>{{ pdfName }}</span>
+        </div>
+        <div v-if="loading" class="loading">
+          <DotLottieVue
+            style="height: 100px; width: 100px"
+            autoplay
+            loop
+            src="https://lottie.host/1dc88740-2baa-417f-90a7-7148f30ba334/dojnWDdx52.lottie"
           />
         </div>
-      </div>
-      <div v-if="pdfName && !isImage" class="preview pdf-preview">
-        <span>{{ pdfName }}</span>
-      </div>
-      <div v-if="loading" class="loading">Submitting...</div>
-      <div v-if="error" class="error">{{ error }}</div>
+        <div v-if="error" class="error">{{ error }}</div>
+      </template>
     </div>
     <!-- Preview and submit button outside border -->
     <div v-if="croppedImage && isImage" class="preview-outer">
@@ -107,10 +157,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Cropper } from 'vue-advanced-cropper'
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 import 'vue-advanced-cropper/dist/style.css'
-import type { ActorMatchesResponse } from '../types'
+import type { ActorMatchesResponse } from '../../types'
 
 const emit = defineEmits<{
   'actor-identified': [result: ActorMatchesResponse]
@@ -125,6 +176,39 @@ const error = ref<string | null>(null)
 const isImage = ref(true)
 const pdfFile = ref<File | null>(null)
 const pdfName = ref<string | null>(null)
+const dragActive = ref(false)
+let dragCounter = 0
+
+function handleWindowDragEnter(e: DragEvent) {
+  if (e.dataTransfer && e.dataTransfer.types.includes('Files')) {
+    dragCounter++
+    dragActive.value = true
+  }
+}
+function handleWindowDragLeave(e: DragEvent) {
+  if (e.dataTransfer && e.dataTransfer.types.includes('Files')) {
+    dragCounter--
+    if (dragCounter <= 0) {
+      dragActive.value = false
+      dragCounter = 0
+    }
+  }
+}
+function handleWindowDrop(e: DragEvent) {
+  dragActive.value = false
+  dragCounter = 0
+}
+
+onMounted(() => {
+  window.addEventListener('dragenter', handleWindowDragEnter)
+  window.addEventListener('dragleave', handleWindowDragLeave)
+  window.addEventListener('drop', handleWindowDrop)
+})
+onUnmounted(() => {
+  window.removeEventListener('dragenter', handleWindowDragEnter)
+  window.removeEventListener('dragleave', handleWindowDragLeave)
+  window.removeEventListener('drop', handleWindowDrop)
+})
 
 // Camera modal state
 const showCamera = ref(false)
@@ -223,6 +307,31 @@ function deleteImage() {
   error.value = null
 }
 
+function onDrop(event: DragEvent) {
+  dragActive.value = false
+  const files = event.dataTransfer?.files
+  if (files && files[0]) {
+    const file = files[0]
+    if (file.type.startsWith('image/')) {
+      imageUrl.value = URL.createObjectURL(file)
+      croppedImage.value = null
+      error.value = null
+      isImage.value = true
+      pdfFile.value = null
+      pdfName.value = null
+    } else if (file.type === 'application/pdf') {
+      imageUrl.value = null
+      croppedImage.value = null
+      error.value = null
+      isImage.value = false
+      pdfFile.value = file
+      pdfName.value = file.name
+    } else {
+      error.value = 'Unsupported file type.'
+    }
+  }
+}
+
 async function onSubmit() {
   error.value = null
   loading.value = true
@@ -270,9 +379,16 @@ async function onSubmit() {
   flex-direction: column;
   align-items: center;
   max-width: 340px;
+  width: 360px;
+  height: 444%;
   margin: 0 auto;
-  min-height: 320px;
   position: relative;
+}
+@media (max-width: 480px) {
+  .image-uploader-box {
+    max-width: 98vw;
+    height: 220px;
+  }
 }
 .upload-area {
   display: flex;
@@ -386,6 +502,12 @@ async function onSubmit() {
   margin-top: 1rem;
   color: #d40000;
   font-weight: 500;
+}
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
 }
 .camera-modal {
   position: fixed;
@@ -507,5 +629,42 @@ async function onSubmit() {
   font-size: 1.05rem;
   font-weight: 500;
   user-select: none;
+}
+.drag-active {
+  border-color: #0078d4;
+  background: #f0f8ff;
+}
+.drop-area {
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: #888;
+  min-width: 250px;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.drop-area:focus {
+  border-color: #333;
+}
+.drop-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+}
+.drop-message-text {
+  font-size: 1.1rem;
+  color: #0078d4;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
 </style>

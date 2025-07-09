@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Actor } from '../types'
+import type { Actor } from '../../types'
 
 interface Props {
   actor: Actor

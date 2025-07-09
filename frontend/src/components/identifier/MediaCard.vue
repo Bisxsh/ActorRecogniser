@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Media } from '../types'
+import type { Media } from '../../types'
 
 interface Props {
   media: Media

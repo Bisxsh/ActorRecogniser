@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import ActorCard from './ActorCard.vue'
-import type { Actor } from '../types'
+import type { Actor } from '../../types'
 
 interface Props {
   actors: Actor[]
