@@ -64,7 +64,7 @@ onUnmounted(() => {
 .navbar-left:hover {
   opacity: 0.8;
 }
-.navbar-right {
-  /* Placeholder for future nav links */
-}
+/* .navbar-right { */
+/* Placeholder for future nav links */
+/* } */
 </style>
