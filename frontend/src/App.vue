@@ -2,7 +2,9 @@
   <main class="app-root-wrapper">
     <Navbar />
     <div class="navbar-spacer"></div>
-    <router-view />
+    <div class="page-container">
+      <router-view />
+    </div>
   </main>
 </template>
 
@@ -40,7 +42,7 @@ onUnmounted(() => {
 }
 
 body {
-  background: linear-gradient(135deg, #10131a 80%, #181c27 100%);
+  background: var(--color-background-dynamic);
   color: #e6eaf3;
   font-family: 'Sora', sans-serif;
   min-height: 100vh;
@@ -69,6 +71,14 @@ body {
   pointer-events: none;
 }
 
+.page-container {
+  padding: 6rem 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .navbar-spacer {
   height: 56px;
 }
@@ -81,5 +91,11 @@ body {
   width: 100vw;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .page-container {
+    padding: 4rem 1rem;
+  }
 }
 </style>

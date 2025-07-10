@@ -2,7 +2,8 @@
   --color-primary: #8bd0cc;
   --color-primary-dark: hsl(219, 26%, 52%);
   --color-primary-light: #b3d9d7;
-  --color-background: #232528;
+  --color-background-static: #232528;
+  --color-background-dynamic: linear-gradient(135deg, #10131a 80%, #181c27 100%);
   --color-danger: #ed1c24;
   --section-gap: 160px;
   --color-text: hsl(177, 80%, 90%);

@@ -3,7 +3,7 @@
     <section class="scroll-section hero-section">
       <LandingHero @launch-app="goToApp" />
     </section>
-    <section class="scroll-section app-details-section">
+    <section class="scroll-section app-details-section" ref="appDetailsSection">
       <LandingAppDetails />
     </section>
     <section class="scroll-section how-it-works-section">
@@ -21,11 +21,33 @@ import LandingHero from '../components/landing/Hero.vue'
 import LandingAppDetails from '../components/landing/AppDetails.vue'
 import LandingHowItWorks from '../components/landing/HowItWorks.vue'
 import LandingFooter from '../components/landing/Footer.vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ref, onMounted } from 'vue'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const router = useRouter()
 function goToApp() {
   router.push('/app')
 }
+
+const appDetailsSection = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (appDetailsSection.value) {
+    gsap.to(document.body, {
+      backgroundColor: 'red',
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: appDetailsSection.value,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    })
+  }
+})
 </script>
 
 <style scoped>
@@ -50,15 +72,9 @@ function goToApp() {
 
 .app-details-section {
   min-height: 100vh;
-  padding: 2rem 0;
 }
 
 .how-it-works-section {
   min-height: 100vh;
-  padding: 2rem 0;
-}
-
-.footer-section {
-  padding: 1rem;
 }
 </style>
