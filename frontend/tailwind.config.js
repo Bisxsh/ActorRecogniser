@@ -3,12 +3,29 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Sora', 'sans-serif'],
+      },
       colors: {
-        'background-dynamic': '#10131a',
-        'background-static': '#0d1117',
-        'text-light': '#e6eaf3',
-        'primary-dark': '#b6c2e0',
-        'primary-light': '#7de2ff',
+        primary: '#8bd0cc',
+        'primary-dark': {
+          DEFAULT: 'hsl(219, 26%, 52%)',
+        },
+        'primary-light': {
+          DEFAULT: '#b3d9d7',
+        },
+        'background-static': {
+          DEFAULT: '#232528',
+        },
+        danger: {
+          DEFAULT: '#ed1c24',
+        },
+        text: {
+          DEFAULT: 'hsl(177, 80%, 90%)',
+        },
+        'text-dark': {
+          DEFAULT: 'hsl(177, 80%, 10%)',
+        },
         'cyan-highlight': '#00eaff',
         'cyan-highlight-alpha-02': 'rgba(0, 234, 255, 0.02)',
         'cyan-highlight-alpha-04': 'rgba(0, 234, 255, 0.04)',
@@ -32,6 +49,7 @@ export default {
       spacing: {
         '2.5rem': '2.5rem',
         '1.2rem': '1.2rem',
+        'section-gap': '160px',
       },
       fontSize: {
         '2.6rem': '2.6rem',
@@ -40,6 +58,9 @@ export default {
       },
       letterSpacing: {
         '0.01em': '0.01em',
+      },
+      backgroundImage: {
+        'background-dynamic': 'linear-gradient(135deg, #10131a 80%, #181c27 100%)',
       },
     },
   },

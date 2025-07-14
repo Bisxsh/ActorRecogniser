@@ -35,12 +35,6 @@ onUnmounted(() => {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   background: var(--color-background-dynamic);
   color: #e6eaf3;

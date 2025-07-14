@@ -63,7 +63,6 @@ onMounted(() => {
     timeline.from(titles, {
       y: 30,
       opacity: 0,
-      delay: 0.5,
       duration: 0.8,
       ease: 'power3.out',
       stagger: 0.2,
