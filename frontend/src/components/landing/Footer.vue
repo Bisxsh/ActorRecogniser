@@ -1,7 +1,7 @@
 <template>
   <footer class="landing-footer">
     <div class="footer-content">
-      <div class="footer-left">Made with ❤️ by Your Name</div>
+      <a class="footer-left" href="https://bisesh.dev">Made with ❤️ by Bisesh</a>
       <div class="footer-right">© {{ new Date().getFullYear() }} ActorRecogniser</div>
     </div>
   </footer>

@@ -1,8 +1,9 @@
 <template>
   <nav class="navbar" :class="{ 'navbar-hidden': !visible }">
     <div class="navbar-left" @click="goHome">Who's That Actor</div>
-    <div class="navbar-right">
-      <!-- Add nav links here if needed -->
+    <div class="w-screen bg-orange-300 pl-[2rem] text-black text-lg">
+      <i class="pi pi-exclamation-triangle pr-2"></i>
+      Site is under development. Styling will change frequently.
     </div>
   </nav>
 </template>
@@ -44,9 +45,10 @@ onUnmounted(() => {
   left: 0;
   width: 100vw;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
   justify-content: space-between;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 0rem;
   background: var(--color-background);
   min-height: 56px;
   z-index: 100;
@@ -60,6 +62,7 @@ onUnmounted(() => {
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  padding-left: 2rem;
 }
 .navbar-left:hover {
   opacity: 0.8;

@@ -9,6 +9,9 @@
     <section class="scroll-section how-it-works-section">
       <LandingHowItWorks />
     </section>
+    <section class="scroll-section cta-section">
+      <LandingCta />
+    </section>
     <section class="scroll-section footer-section">
       <LandingFooter />
     </section>
@@ -21,6 +24,7 @@ import LandingHero from '../components/landing/Hero.vue'
 import LandingAppDetails from '../components/landing/AppDetails.vue'
 import LandingHowItWorks from '../components/landing/HowItWorks.vue'
 import LandingFooter from '../components/landing/Footer.vue'
+import LandingCta from '../components/landing/LandingCta.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ref, onMounted } from 'vue'

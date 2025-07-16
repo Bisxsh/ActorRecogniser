@@ -1,57 +1,57 @@
 <template>
-  <section class="how-it-works-section">
+  <section class="how-it-works-section mt-[40rem]">
     <div class="how-title">Find an actor in 3 Simple Steps:</div>
 
     <div class="sticky-sections-wrapper">
-      <section class="sticky-step-section text-black">
+      <section ref="firstSection" class="sticky-step-section mt-">
+        <video autoplay loop muted playsinline class="background-video">
+          <source src="../../assets/videos/Stock_Video_Generation_Request.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
         <div class="step-content-wrapper">
           <p class="step-number">1</p>
           <p class="step-title">Upload your Image</p>
-          <div class="step-cards-wrapper">
-            <Card ref="card1" class="step-card" icon="📷" title="Snap" desc="Take a photo" />
-            <Card ref="card2" class="step-card" icon="🗃️" title="Upload" desc="Upload an image" />
-            <Card
-              ref="card3"
-              class="step-card"
-              icon="📋"
-              title="Paste"
-              desc="Copy/Paste an image"
-            />
-          </div>
+        </div>
+        <div class="step-cards-wrapper">
+          <Card class="step-card" icon="📷" title="Snap" desc="Take a photo" />
+          <Card class="step-card" icon="🗃️" title="Upload" desc="Upload an image" />
+          <Card class="step-card" icon="📋" title="Paste" desc="Copy/Paste an image" />
         </div>
       </section>
 
-      <section class="sticky-step-section text-white">
+      <div></div>
+
+      <section ref="secondSection" class="sticky-step-section text-white">
+        <video autoplay loop muted playsinline class="background-video">
+          <source src="../../assets/videos/Video_Generation_Cropping_a_Face.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
         <div class="step-content-wrapper">
           <p class="step-number">2</p>
           <p class="step-title">Focus on the faces</p>
           <p class="step-desc">
             Easily crop or select just the faces you want to identify for precise results.
           </p>
-          <div class="step-visual">
-            <img
-              src="https://placehold.co/400x250/00eaff/000000?text=Cropping+Visual"
-              alt="Cropping Tool"
-              class="step-image"
-            />
-          </div>
         </div>
       </section>
 
-      <section class="sticky-step-section text-white">
+      <section ref="thirdSection" class="sticky-step-section text-white">
+        <video autoplay loop muted playsinline class="background-video">
+          <source
+            src="../../assets/videos/Video_Generation_Request_Complete.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
         <div class="step-content-wrapper">
           <p class="step-number">3</p>
           <p class="step-title">Discover their story</p>
           <p class="step-desc">
             Click on an identified actor to instantly view all their movies and TV shows.
           </p>
-          <div class="step-visual">
-            <img
-              src="https://placehold.co/400x250/00eaff/000000?text=Actor+Profile+Visual"
-              alt="Actor Profile"
-              class="step-image"
-            />
-          </div>
         </div>
       </section>
     </div>
@@ -66,30 +66,42 @@ import Card from '../Card.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const card1 = ref(null)
-const card2 = ref(null)
-const card3 = ref(null)
+let firstSection = ref(null)
+let secondSection = ref(null)
+let thirdSection = ref(null)
 
 onMounted(() => {
-  // Get all sticky sections
   const stickySections = gsap.utils.toArray('.sticky-step-section')
 
-  // Create a ScrollTrigger for each section to pin it
   stickySections.forEach((section, index) => {
     ScrollTrigger.create({
       trigger: section as HTMLElement,
-      start: 'top top', // Pin when the top of the section hits the top of the viewport
-      end: 'bottom top', // Release when the bottom of the section hits the top of the viewport
-      pin: true, // This is the key: GSAP will manage the sticky behavior
-      // markers: true, // Uncomment for debugging
-      // You can add scrub: true here if you want a subtle animation during the pin
-      // For a hard "stack" effect, scrub: false (default) or not setting it is fine.
+      start: 'top top',
+      end: 'bottom top',
+      pin: true,
     })
   })
 
-  // To ensure enough scroll space for all sections to pin and unpin,
-  // the parent container (.how-it-works-section or its wrapper) needs sufficient height.
-  // The min-height: 300vh on .sticky-sections-wrapper is good for 3 sections.
+  gsap.to('.app-root-wrapper', {
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    scrollTrigger: {
+      trigger: firstSection.value,
+      start: 'top bottom',
+      end: 'top 40%',
+      toggleActions: 'play none reverse reverse',
+    },
+    reversed: true,
+  })
+
+  gsap.to('.app-root-wrapper', {
+    backgroundColor: 'var(--color-background-dynamic)',
+    scrollTrigger: {
+      trigger: thirdSection.value,
+      start: 'bottom 20%',
+      end: 'bottom top',
+      toggleActions: 'play none reverse reverse',
+    },
+  })
 })
 </script>
 
@@ -98,7 +110,6 @@ onMounted(() => {
   padding: 2rem;
   text-align: center;
   width: 100%;
-  /* min-height will implicitly be determined by the stacked sticky sections */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -123,12 +134,12 @@ onMounted(() => {
 .sticky-sections-wrapper {
   position: relative;
   width: 100%;
-  min-height: 300vh; /* 3 sections * 100vh each */
+  min-height: 300vh;
   overflow: visible;
+  margin-top: 20vh;
 }
 
 .sticky-step-section {
-  /* Removed position: sticky; top: 0; from here. GSAP's pin will handle it. */
   height: 100vh;
   width: 100%;
   display: flex;
@@ -137,9 +148,36 @@ onMounted(() => {
   justify-content: center;
   box-sizing: border-box;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100vw;
+  height: auto;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
 }
 
 .step-content-wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,6 +190,7 @@ onMounted(() => {
 .step-number {
   font-size: 30rem;
   position: absolute;
+  top: -10rem;
   left: 0;
   opacity: 0.3;
   line-height: 1;
@@ -182,6 +221,8 @@ onMounted(() => {
 
 .step-card {
   height: 20rem;
+  opacity: 1;
+  /* Make opacity 1 */
 }
 
 .step-image {
@@ -198,6 +239,7 @@ onMounted(() => {
   }
   .step-number {
     font-size: 20rem;
+    top: -20rem;
   }
   .step-title {
     font-size: 2.5rem;
@@ -221,6 +263,7 @@ onMounted(() => {
   }
   .step-number {
     font-size: 15rem;
+    top: -15rem;
   }
   .step-title {
     font-size: 2rem;
