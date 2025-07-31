@@ -22,7 +22,7 @@
 import { useRouter } from 'vue-router'
 import LandingHero from '../components/landing/hero.vue'
 import LandingAppDetails from '../components/landing/appdetails.vue'
-import LandingHowItWorks from '../components/landing/howItWorks.vue'
+import LandingHowItWorks from '../components/landing/howitworks.vue'
 import LandingFooter from '../components/landing/footer.vue'
 import LandingCta from '../components/landing/cta.vue'
 import gsap from 'gsap'
