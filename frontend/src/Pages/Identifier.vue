@@ -51,7 +51,9 @@ async function handleActorSelected(actor: Actor) {
   error.value = null
 
   try {
-    const response = await fetch(`http://localhost:8080/actor-media/${actor.id}`)
+    const response = await fetch(
+      `https://actor-recogniser-service-452650917730.europe-west2.run.app//actor-media/${actor.id}`,
+    )
     if (!response.ok) {
       throw new Error('Failed to load actor media')
     }

@@ -1,0 +1,899 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from dockerfile
+#1 transferring dockerfile: 1.60kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.85.0-bookworm
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim
+#3 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/library/rust:1.85.0-bookworm
+#2 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [runtime 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:2424c1850714a4d94666ec928e24d86de958646737b1d113f5b2207be44d37d8
+#5 resolve docker.io/library/debian:bookworm-slim@sha256:2424c1850714a4d94666ec928e24d86de958646737b1d113f5b2207be44d37d8 done
+#5 DONE 0.0s
+
+#6 [runtime 2/3] WORKDIR /app
+#6 CACHED
+
+#7 [build 1/5] FROM docker.io/library/rust:1.85.0-bookworm@sha256:0ff31c9ffa641a62e48d543fb00b4960955ea375f40776f40f585b89e654cc5e
+#7 resolve docker.io/library/rust:1.85.0-bookworm@sha256:0ff31c9ffa641a62e48d543fb00b4960955ea375f40776f40f585b89e654cc5e done
+#7 DONE 0.0s
+
+#8 [build 2/5] WORKDIR /app
+#8 CACHED
+
+#9 [internal] load build context
+#9 transferring context: 2.24kB done
+#9 DONE 0.0s
+
+#10 [build 3/5] COPY . .
+#10 DONE 0.0s
+
+#11 [build 4/5] RUN mkdir -p target/release
+#11 DONE 0.1s
+
+#12 [build 5/5] RUN cargo build --release --target-dir target/release
+#12 0.324     Updating crates.io index
+#12 17.22  Downloading crates ...
+#12 19.28   Downloaded alloc-no-stdlib v2.0.4
+#12 20.36   Downloaded tinyvec_macros v0.1.1
+#12 21.34   Downloaded try-lock v0.2.5
+#12 24.61   Downloaded typeshare-annotation v1.0.4
+#12 55.02 warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `actix-cors v0.6.5` failed to transfer more than 10 bytes in 30s)
+#12 55.02 warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `actix-codec v0.5.2` within 30s)
+#12 87.21 warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `actix-macros v0.2.4` failed to transfer more than 10 bytes in 30s)
+#12 87.21 warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `actix-http v3.11.0` within 30s)
+#12 119.4 warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `actix-multipart-derive v0.7.0` failed to transfer more than 10 bytes in 30s)
+#12 119.4 warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `actix-multipart v0.7.2` within 30s)
+#12 150.6 warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `actix-rt v2.10.0` failed to transfer more than 10 bytes in 30s)
+#12 150.6 warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `actix-router v0.5.3` within 30s)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [55] Failed sending data to the peer (Send failure: Broken pipe)
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [16] Error in the HTTP2 framing layer
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 174.9 warning: spurious network error (3 tries remaining): [18] Transferred a partial file
+#12 176.0   Downloaded darling_macro v0.20.11
+#12 176.1   Downloaded num-conv v0.1.0
+#12 176.1   Downloaded aws-smithy-query v0.60.7
+#12 176.1   Downloaded equivalent v1.0.2
+#12 176.2   Downloaded scopeguard v1.2.0
+#12 176.2   Downloaded httpdate v1.0.3
+#12 176.2   Downloaded rand_chacha v0.3.1
+#12 176.3   Downloaded outref v0.5.2
+#12 176.3   Downloaded http-body v1.0.1
+#12 176.3   Downloaded ident_case v1.0.1
+#12 176.3   Downloaded parse-size v1.1.0
+#12 176.3   Downloaded matchers v0.1.0
+#12 176.3   Downloaded itoa v1.0.15
+#12 176.3   Downloaded local-channel v0.1.5
+#12 176.3   Downloaded shuttle-codegen v0.56.0
+#12 176.3   Downloaded pkg-config v0.3.32
+#12 176.4   Downloaded time-core v0.1.4
+#12 176.4   Downloaded shuttle-service v0.56.0
+#12 176.4   Downloaded powerfmt v0.2.0
+#12 176.4   Downloaded zerofrom-derive v0.1.6
+#12 176.4   Downloaded webpki-roots v0.26.11
+#12 176.4   Downloaded pin-utils v0.1.0
+#12 176.4   Downloaded block-buffer v0.10.4
+#12 176.4   Downloaded dotenvy v0.15.7
+#12 176.4   Downloaded rustc_version v0.4.1
+#12 176.4   Downloaded headers-core v0.3.0
+#12 176.4   Downloaded openssl-macros v0.1.1
+#12 176.4   Downloaded proc-macro-error-attr2 v2.0.0
+#12 176.4   Downloaded foreign-types-shared v0.1.1
+#12 176.5   Downloaded want v0.3.1
+#12 176.5   Downloaded rand_chacha v0.9.0
+#12 176.5   Downloaded ppv-lite86 v0.2.21
+#12 176.5   Downloaded rustc-hash v2.1.1
+#12 176.5   Downloaded rand_core v0.9.3
+#12 176.5   Downloaded http-body-util v0.1.3
+#12 176.5   Downloaded tower-service v0.3.3
+#12 176.6   Downloaded mime v0.3.17
+#12 176.6   Downloaded lazy_static v1.5.0
+#12 176.6   Downloaded rustls-pemfile v1.0.4
+#12 176.6   Downloaded stable_deref_trait v1.2.0
+#12 176.7   Downloaded impl-more v0.1.9
+#12 176.7   Downloaded idna_adapter v1.2.1
+#12 176.7   Downloaded actix-multipart-derive v0.7.0
+#12 176.7   Downloaded http-body v0.4.6
+#12 176.7   Downloaded actix-macros v0.2.4
+#12 176.7   Downloaded cfg_aliases v0.2.1
+#12 176.7   Downloaded alloc-stdlib v0.2.2
+#12 176.8   Downloaded potential_utf v0.1.2
+#12 176.8   Downloaded cfg-if v1.0.1
+#12 176.8   Downloaded fs_extra v1.3.0
+#12 176.9   Downloaded quinn-udp v0.5.13
+#12 176.9   Downloaded urlencoding v2.1.3
+#12 176.9   Downloaded sync_wrapper v1.0.2
+#12 176.9   Downloaded lock_api v0.4.13
+#12 176.9   Downloaded lru-slab v0.1.2
+#12 176.9   Downloaded rand_core v0.6.4
+#12 176.9   Downloaded proc-macro-error2 v2.0.1
+#12 177.0   Downloaded reqwest-middleware v0.4.2
+#12 177.0   Downloaded hyper-rustls v0.24.2
+#12 177.1   Downloaded mime_guess v2.0.5
+#12 177.1   Downloaded jobserver v0.1.33
+#12 177.1   Downloaded rustls-native-certs v0.6.3
+#12 177.1   Downloaded hyper-rustls v0.27.7
+#12 177.1   Downloaded iana-time-zone v0.1.63
+#12 177.1   Downloaded rustls-native-certs v0.8.1
+#12 177.1   Downloaded actix-codec v0.5.2
+#12 177.2   Downloaded tinyvec v1.9.0
+#12 177.2   Downloaded base64-simd v0.8.0
+#12 177.2   Downloaded form_urlencoded v1.2.1
+#12 177.2   Downloaded zerofrom v0.1.6
+#12 177.3   Downloaded signal-hook-registry v1.4.5
+#12 177.3   Downloaded shuttle-runtime v0.56.0
+#12 177.3   Downloaded tower-layer v0.3.3
+#12 177.3   Downloaded futures-sink v0.3.31
+#12 177.3   Downloaded local-waker v0.1.4
+#12 177.3   Downloaded typeshare v1.0.4
+#12 177.3   Downloaded proc-macro2 v1.0.95
+#12 177.3   Downloaded num-integer v0.1.46
+#12 177.3   Downloaded generic-array v0.14.7
+#12 177.3   Downloaded heck v0.5.0
+#12 177.3   Downloaded shuttle-ifc v0.56.0
+#12 177.4   Downloaded openssl-probe v0.1.6
+#12 177.4   Downloaded httparse v1.10.1
+#12 177.4   Downloaded log v0.4.27
+#12 177.5   Downloaded litemap v0.8.0
+#12 177.5   Downloaded icu_provider v2.0.0
+#12 177.5   Downloaded language-tags v0.3.2
+#12 177.5   Downloaded actix-rt v2.10.0
+#12 177.5   Downloaded sharded-slab v0.1.7
+#12 177.5   Downloaded nu-ansi-term v0.46.0
+#12 177.5   Downloaded errno v0.3.13
+#12 177.6   Downloaded actix-multipart v0.7.2
+#12 177.6   Downloaded percent-encoding v2.3.1
+#12 177.6   Downloaded crypto-common v0.1.6
+#12 177.6   Downloaded aws-credential-types v1.2.3
+#12 177.8   Downloaded hex v0.4.3
+#12 177.8   Downloaded digest v0.10.7
+#12 177.8   Downloaded actix-utils v3.0.1
+#12 177.8   Downloaded quote v1.0.40
+#12 177.8   Downloaded num_cpus v1.17.0
+#12 177.8   Downloaded untrusted v0.9.0
+#12 177.8   Downloaded autocfg v1.5.0
+#12 177.8   Downloaded version_check v0.9.5
+#12 177.8   Downloaded futures-task v0.3.31
+#12 177.8   Downloaded adler2 v2.0.1
+#12 177.8   Downloaded bytestring v1.4.0
+#12 177.9   Downloaded thiserror-impl v1.0.69
+#12 177.9   Downloaded rustls-pki-types v1.12.0
+#12 178.0   Downloaded actix-cors v0.6.5
+#12 178.0   Downloaded icu_properties v2.0.1
+#12 178.0   Downloaded data-encoding v2.9.0
+#12 178.0   Downloaded smallvec v1.15.1
+#12 178.1   Downloaded aws-smithy-observability v0.1.3
+#12 178.1   Downloaded thiserror v2.0.12
+#12 178.1   Downloaded miniz_oxide v0.8.9
+#12 178.2   Downloaded bytes-utils v0.1.4
+#12 178.2   Downloaded tokio-native-tls v0.3.1
+#12 178.2   Downloaded utf8_iter v1.0.4
+#12 178.2   Downloaded aws-sdk-sso v1.74.0
+#12 178.2   Downloaded openssl-sys v0.9.109
+#12 178.2   Downloaded typenum v1.18.0
+#12 178.2   Downloaded unicase v2.8.1
+#12 178.2   Downloaded ipnet v2.11.0
+#12 178.2   Downloaded shlex v1.3.0
+#12 178.2   Downloaded futures-channel v0.3.31
+#12 178.3   Downloaded strfmt v0.2.5
+#12 178.3   Downloaded zerovec-derive v0.11.1
+#12 178.4   Downloaded aws-types v1.3.7
+#12 178.4   Downloaded fnv v1.0.7
+#12 178.4   Downloaded shuttle-api-client v0.56.0
+#12 178.4   Downloaded tinystr v0.8.1
+#12 178.4   Downloaded num-traits v0.2.19
+#12 178.4   Downloaded quinn v0.11.8
+#12 178.6   Downloaded strum v0.27.2
+#12 178.6   Downloaded icu_locale_core v2.0.0
+#12 178.6   Downloaded synstructure v0.13.2
+#12 178.6   Downloaded icu_collections v2.0.0
+#12 178.6   Downloaded strsim v0.11.1
+#12 178.6   Downloaded serde_derive v1.0.219
+#12 178.7   Downloaded slab v0.4.10
+#12 178.7   Downloaded unicode-xid v0.2.6
+#12 178.7   Downloaded serde_plain v1.0.2
+#12 178.7   Downloaded getrandom v0.3.3
+#12 178.7   Downloaded cpufeatures v0.2.17
+#12 178.7   Downloaded tracing-serde v0.2.0
+#12 178.7   Downloaded either v1.15.0
+#12 178.7   Downloaded actix-web-codegen v4.3.0
+#12 178.7   Downloaded thread_local v1.1.9
+#12 178.8   Downloaded deranged v0.4.0
+#12 178.8   Downloaded shuttle-actix-web v0.56.0
+#12 178.8   Downloaded aws-smithy-http v0.62.1
+#12 178.8   Downloaded aws-smithy-json v0.61.4
+#12 178.8   Downloaded atomic-waker v1.1.2
+#12 178.8   Downloaded yoke-derive v0.8.0
+#12 178.8   Downloaded icu_normalizer_data v2.0.0
+#12 178.8   Downloaded rand v0.9.1
+#12 178.8   Downloaded utf-8 v0.7.6
+#12 178.8   Downloaded regex-lite v0.1.6
+#12 178.9   Downloaded mio v1.0.4
+#12 178.9   Downloaded darling_core v0.20.11
+#12 178.9   Downloaded indexmap v2.10.0
+#12 178.9   Downloaded foreign-types v0.3.2
+#12 178.9   Downloaded pin-project-lite v0.2.16
+#12 179.0   Downloaded zeroize v1.8.1
+#12 179.0   Downloaded writeable v0.6.1
+#12 179.0   Downloaded derive_more v2.0.1
+#12 179.0   Downloaded time-macros v0.2.22
+#12 179.0   Downloaded tracing-core v0.1.34
+#12 179.0   Downloaded thiserror-impl v2.0.12
+#12 179.0   Downloaded hmac v0.12.1
+#12 179.0   Downloaded anyhow v1.0.98
+#12 179.1   Downloaded vsimd v0.8.0
+#12 179.1   Downloaded sct v0.7.1
+#12 179.1   Downloaded tokio-rustls v0.26.2
+#12 179.1   Downloaded hyper-tls v0.6.0
+#12 179.1   Downloaded futures-core v0.3.31
+#12 179.1   Downloaded http v0.2.12
+#12 179.1   Downloaded hyper-util v0.1.15
+#12 179.1   Downloaded regex-automata v0.1.10
+#12 179.1   Downloaded zstd-safe v7.2.4
+#12 179.1   Downloaded convert_case v0.4.0
+#12 179.1   Downloaded overload v0.1.1
+#12 179.2   Downloaded icu_normalizer v2.0.0
+#12 179.2   Downloaded native-tls v0.2.14
+#12 179.2   Downloaded parking_lot_core v0.9.11
+#12 179.2   Downloaded socket2 v0.5.10
+#12 179.2   Downloaded getrandom v0.2.16
+#12 179.2   Downloaded thiserror v1.0.69
+#12 179.2   Downloaded aws-sigv4 v1.3.3
+#12 179.2   Downloaded cookie v0.16.2
+#12 179.3   Downloaded xmlparser v0.13.6
+#12 179.3   Downloaded rand v0.8.5
+#12 179.3   Downloaded zstd v0.13.3
+#12 179.3   Downloaded sha2 v0.10.9
+#12 179.3   Downloaded fastrand v2.3.0
+#12 179.3   Downloaded tracing-attributes v0.1.30
+#12 179.3   Downloaded async-trait v0.1.88
+#12 179.3   Downloaded aws-smithy-runtime v1.8.3
+#12 179.3   Downloaded displaydoc v0.2.5
+#12 179.4   Downloaded tokio-rustls v0.24.1
+#12 179.4   Downloaded memchr v2.7.5
+#12 179.4   Downloaded yoke v0.8.0
+#12 179.4   Downloaded actix-service v2.0.3
+#12 179.5   Downloaded idna v1.0.3
+#12 179.5   Downloaded tracing-log v0.2.0
+#12 179.5   Downloaded futures-macro v0.3.31
+#12 179.5   Downloaded aws-smithy-types v1.3.2
+#12 179.5   Downloaded dunce v1.0.5
+#12 179.6   Downloaded tokio-tungstenite v0.26.2
+#12 179.6   Downloaded time v0.3.41
+#12 179.6   Downloaded tokio-util v0.7.15
+#12 179.6   Downloaded serde_urlencoded v0.7.1
+#12 179.6   Downloaded strum_macros v0.27.2
+#12 179.7   Downloaded icu_properties_data v2.0.1
+#12 179.7   Downloaded hyper v1.6.0
+#12 179.7   Downloaded darling v0.20.11
+#12 179.8   Downloaded serde v1.0.219
+#12 179.8   Downloaded tracing v0.1.41
+#12 179.8   Downloaded tower v0.5.2
+#12 179.9   Downloaded tower-http v0.6.6
+#12 180.0   Downloaded cmake v0.1.54
+#12 180.0   Downloaded actix-http v3.11.0
+#12 180.0   Downloaded iri-string v0.7.8
+#12 180.0   Downloaded tokio-macros v2.5.0
+#12 180.0   Downloaded foldhash v0.1.5
+#12 180.1   Downloaded semver v1.0.26
+#12 180.1   Downloaded reqwest v0.12.22
+#12 180.1   Downloaded hyper v0.14.32
+#12 180.1   Downloaded parking_lot v0.12.4
+#12 180.1   Downloaded actix-router v0.5.3
+#12 180.1   Downloaded unicode-ident v1.0.18
+#12 180.2   Downloaded serde_json v1.0.140
+#12 180.2   Downloaded aws-sdk-sts v1.76.0
+#12 180.2   Downloaded aws-lc-rs v1.13.1
+#12 180.3   Downloaded vcpkg v0.2.15
+#12 180.3   Downloaded subtle v2.6.1
+#12 180.3   Downloaded sha1 v0.10.6
+#12 180.4   Downloaded bitflags v2.9.1
+#12 180.4   Downloaded quinn-proto v0.11.12
+#12 180.4   Downloaded aws-smithy-xml v0.60.10
+#12 180.4   Downloaded ryu v1.0.20
+#12 180.4   Downloaded rustls-webpki v0.101.7
+#12 180.4   Downloaded derive_more v0.99.20
+#12 180.4   Downloaded brotli-decompressor v5.0.0
+#12 180.5   Downloaded regex v1.11.1
+#12 180.5   Downloaded tracing-subscriber v0.3.19
+#12 180.5   Downloaded actix-server v2.6.0
+#12 180.6   Downloaded rustls v0.21.12
+#12 180.6   Downloaded once_cell v1.21.3
+#12 180.7   Downloaded webpki-roots v1.0.2
+#12 180.8   Downloaded actix-web v4.11.0
+#12 180.8   Downloaded crc32fast v1.4.2
+#12 180.8   Downloaded syn v2.0.104
+#12 180.9   Downloaded zerocopy v0.8.26
+#12 180.9   Downloaded regex-syntax v0.6.29
+#12 181.0   Downloaded regex-syntax v0.8.5
+#12 181.0   Downloaded aws-smithy-async v1.2.5
+#12 181.0   Downloaded shuttle-common v0.56.0
+#12 181.1   Downloaded aws-smithy-runtime-api v1.8.1
+#12 181.1   Downloaded rustls v0.23.28
+#12 181.3   Downloaded tempfile v3.20.0
+#12 181.3   Downloaded rustix v1.0.7
+#12 181.3   Downloaded headers v0.4.1
+#12 181.4   Downloaded tungstenite v0.26.2
+#12 181.6   Downloaded bytes v1.10.1
+#12 181.7   Downloaded uuid v1.17.0
+#12 181.7   Downloaded base64 v0.22.1
+#12 181.8   Downloaded regex-automata v0.4.9
+#12 181.8   Downloaded flate2 v1.1.2
+#12 181.8   Downloaded rustls-webpki v0.103.3
+#12 181.9   Downloaded aws-runtime v1.5.8
+#12 181.9   Downloaded base64 v0.21.7
+#12 182.2   Downloaded aws-smithy-http-client v1.0.6
+#12 182.2   Downloaded zstd-sys v2.0.15+zstd.1.5.7
+#12 182.2   Downloaded derive_more-impl v2.0.1
+#12 182.2   Downloaded libc v0.2.174
+#12 182.2   Downloaded zerotrie v0.2.2
+#12 182.2   Downloaded tokio v1.46.1
+#12 182.2   Downloaded aws-sdk-ssooidc v1.75.0
+#12 182.3   Downloaded url v2.5.4
+#12 182.6   Downloaded zerovec v0.11.2
+#12 182.6   Downloaded cc v1.2.29
+#12 182.8   Downloaded http v1.3.1
+#12 182.8   Downloaded aws-config v1.8.1
+#12 182.8   Downloaded ring v0.17.14
+#12 182.9   Downloaded hashbrown v0.15.4
+#12 183.1   Downloaded h2 v0.4.11
+#12 183.2   Downloaded futures-util v0.3.31
+#12 183.2   Downloaded aho-corasick v1.1.3
+#12 183.3   Downloaded h2 v0.3.26
+#12 183.3   Downloaded linux-raw-sys v0.9.4
+#12 183.6   Downloaded chrono v0.4.41
+#12 183.8   Downloaded openssl v0.10.73
+#12 185.3   Downloaded aws-lc-sys v0.29.0
+#12 185.5   Downloaded brotli v8.0.1
+#12 185.5   Downloaded aws-sdk-rekognition v1.78.0
+#12 185.5   Downloaded encoding_rs v0.8.35
+#12 185.6    Compiling proc-macro2 v1.0.95
+#12 185.6    Compiling unicode-ident v1.0.18
+#12 185.6    Compiling libc v0.2.174
+#12 185.6    Compiling cfg-if v1.0.1
+#12 185.6    Compiling autocfg v1.5.0
+#12 185.6    Compiling bytes v1.10.1
+#12 185.6    Compiling shlex v1.3.0
+#12 185.6    Compiling log v0.4.27
+#12 185.6    Compiling pin-project-lite v0.2.16
+#12 185.6    Compiling itoa v1.0.15
+#12 185.7    Compiling smallvec v1.15.1
+#12 185.7    Compiling parking_lot_core v0.9.11
+#12 185.8    Compiling futures-core v0.3.31
+#12 185.8    Compiling scopeguard v1.2.0
+#12 185.8    Compiling once_cell v1.21.3
+#12 185.8    Compiling fnv v1.0.7
+#12 185.9    Compiling futures-sink v0.3.31
+#12 185.9    Compiling serde v1.0.219
+#12 185.9    Compiling pin-utils v0.1.0
+#12 185.9    Compiling slab v0.4.10
+#12 185.9    Compiling tracing-core v0.1.34
+#12 185.9    Compiling futures-task v0.3.31
+#12 186.0    Compiling zeroize v1.8.1
+#12 186.0    Compiling lock_api v0.4.13
+#12 186.0    Compiling ryu v1.0.20
+#12 186.1    Compiling version_check v0.9.5
+#12 186.1    Compiling subtle v2.6.1
+#12 186.1    Compiling http v1.3.1
+#12 186.2    Compiling http v0.2.12
+#12 186.2    Compiling num-traits v0.2.19
+#12 186.3    Compiling httparse v1.10.1
+#12 186.3    Compiling typenum v1.18.0
+#12 186.4    Compiling quote v1.0.40
+#12 186.5    Compiling jobserver v0.1.33
+#12 186.5    Compiling equivalent v1.0.2
+#12 186.6    Compiling hashbrown v0.15.4
+#12 186.6    Compiling syn v2.0.104
+#12 186.6    Compiling signal-hook-registry v1.4.5
+#12 186.6    Compiling socket2 v0.5.10
+#12 186.6    Compiling cc v1.2.29
+#12 186.8    Compiling parking_lot v0.12.4
+#12 186.9    Compiling mio v1.0.4
+#12 186.9    Compiling getrandom v0.2.16
+#12 187.0    Compiling http-body v1.0.1
+#12 187.1    Compiling percent-encoding v2.3.1
+#12 187.1    Compiling indexmap v2.10.0
+#12 187.4    Compiling generic-array v0.14.7
+#12 187.5    Compiling cmake v0.1.54
+#12 187.5    Compiling fs_extra v1.3.0
+#12 187.5    Compiling untrusted v0.9.0
+#12 187.6    Compiling dunce v1.0.5
+#12 187.6    Compiling num-conv v0.1.0
+#12 187.7    Compiling pkg-config v0.3.32
+#12 187.7    Compiling powerfmt v0.2.0
+#12 187.8    Compiling time-core v0.1.4
+#12 187.8    Compiling httpdate v1.0.3
+#12 187.8    Compiling time-macros v0.2.22
+#12 187.9    Compiling deranged v0.4.0
+#12 187.9    Compiling http-body-util v0.1.3
+#12 188.1    Compiling rustls-pki-types v1.12.0
+#12 188.1    Compiling aws-lc-rs v1.13.1
+#12 188.1    Compiling semver v1.0.26
+#12 188.1    Compiling stable_deref_trait v1.2.0
+#12 188.1    Compiling base64 v0.22.1
+#12 188.1    Compiling ring v0.17.14
+#12 188.2    Compiling aws-lc-sys v0.29.0
+#12 188.2    Compiling openssl-probe v0.1.6
+#12 188.2    Compiling serde_json v1.0.140
+#12 188.4    Compiling try-lock v0.2.5
+#12 188.4    Compiling crypto-common v0.1.6
+#12 188.4    Compiling block-buffer v0.10.4
+#12 188.4    Compiling tower-service v0.3.3
+#12 188.4    Compiling want v0.3.1
+#12 188.5    Compiling http-body v0.4.6
+#12 188.5    Compiling digest v0.10.7
+#12 188.5    Compiling cpufeatures v0.2.17
+#12 188.5    Compiling futures-channel v0.3.31
+#12 188.5    Compiling rustls v0.23.28
+#12 188.6    Compiling memchr v2.7.5
+#12 188.6    Compiling atomic-waker v1.1.2
+#12 188.6    Compiling vsimd v0.8.0
+#12 188.6    Compiling outref v0.5.2
+#12 188.7    Compiling either v1.15.0
+#12 188.7    Compiling num-integer v0.1.46
+#12 188.7    Compiling form_urlencoded v1.2.1
+#12 188.8    Compiling bytes-utils v0.1.4
+#12 188.8    Compiling bitflags v2.9.1
+#12 188.8    Compiling time v0.3.41
+#12 188.9    Compiling webpki-roots v1.0.2
+#12 189.0    Compiling litemap v0.8.0
+#12 189.0    Compiling writeable v0.6.1
+#12 189.1    Compiling base64-simd v0.8.0
+#12 189.1    Compiling ipnet v2.11.0
+#12 189.1    Compiling zerocopy v0.8.26
+#12 189.2    Compiling sync_wrapper v1.0.2
+#12 189.2    Compiling icu_normalizer_data v2.0.0
+#12 189.3    Compiling icu_properties_data v2.0.1
+#12 189.3    Compiling tower-layer v0.3.3
+#12 189.4    Compiling getrandom v0.3.3
+#12 189.4    Compiling rustls-native-certs v0.8.1
+#12 189.4    Compiling vcpkg v0.2.15
+#12 189.6    Compiling synstructure v0.13.2
+#12 190.0    Compiling openssl-sys v0.9.109
+#12 190.1    Compiling rustls v0.21.12
+#12 190.1    Compiling rand_core v0.9.3
+#12 190.2    Compiling utf8_iter v1.0.4
+#12 190.2    Compiling mime v0.3.17
+#12 190.3    Compiling base64 v0.21.7
+#12 190.3    Compiling heck v0.5.0
+#12 190.4    Compiling sha1 v0.10.6
+#12 190.4    Compiling zstd-sys v2.0.15+zstd.1.5.7
+#12 190.5    Compiling rustls-pemfile v1.0.4
+#12 190.6    Compiling regex-lite v0.1.6
+#12 190.6    Compiling openssl v0.10.73
+#12 190.6    Compiling foreign-types-shared v0.1.1
+#12 190.7    Compiling foreign-types v0.3.2
+#12 190.7    Compiling rustls-native-certs v0.6.3
+#12 190.8    Compiling ppv-lite86 v0.2.21
+#12 190.8    Compiling aho-corasick v1.1.3
+#12 190.9    Compiling rand_chacha v0.9.0
+#12 191.0    Compiling rand v0.9.1
+#12 191.1    Compiling tokio-macros v2.5.0
+#12 191.4    Compiling serde_derive v1.0.219
+#12 191.6    Compiling tokio v1.46.1
+#12 191.6    Compiling futures-macro v0.3.31
+#12 192.0    Compiling tracing-attributes v0.1.30
+#12 192.1    Compiling futures-util v0.3.31
+#12 192.6    Compiling zerofrom-derive v0.1.6
+#12 193.0    Compiling tracing v0.1.41
+#12 193.4    Compiling yoke-derive v0.8.0
+#12 193.6    Compiling zerofrom v0.1.6
+#12 193.7    Compiling zerovec-derive v0.11.1
+#12 193.7    Compiling displaydoc v0.2.5
+#12 194.2    Compiling strum_macros v0.27.2
+#12 194.2    Compiling yoke v0.8.0
+#12 194.3    Compiling zerotrie v0.2.2
+#12 194.6    Compiling zerovec v0.11.2
+#12 194.7    Compiling typeshare-annotation v1.0.4
+#12 194.7    Compiling openssl-macros v0.1.1
+#12 195.0    Compiling encoding_rs v0.8.35
+#12 195.1    Compiling fastrand v2.3.0
+#12 195.4    Compiling tokio-util v0.7.15
+#12 195.6    Compiling tinystr v0.8.1
+#12 195.8    Compiling icu_locale_core v2.0.0
+#12 196.2    Compiling h2 v0.4.11
+#12 196.2    Compiling aws-smithy-types v1.3.2
+#12 196.5    Compiling h2 v0.3.26
+#12 196.6    Compiling potential_utf v0.1.2
+#12 196.7    Compiling icu_collections v2.0.0
+#12 197.3    Compiling icu_provider v2.0.0
+#12 197.6    Compiling aws-smithy-async v1.2.5
+#12 197.8    Compiling tower v0.5.2
+#12 198.1    Compiling aws-smithy-runtime-api v1.8.1
+#12 198.3    Compiling icu_properties v2.0.1
+#12 198.8    Compiling icu_normalizer v2.0.0
+#12 199.9    Compiling idna_adapter v1.2.1
+#12 200.0    Compiling sct v0.7.1
+#12 200.0    Compiling rustls-webpki v0.101.7
+#12 200.1    Compiling idna v1.0.3
+#12 200.1    Compiling rustc_version v0.4.1
+#12 200.4    Compiling hyper v1.6.0
+#12 201.7    Compiling hyper v0.14.32
+#12 202.2    Compiling hyper-util v0.1.15
+#12 202.3    Compiling url v2.5.4
+#12 203.9    Compiling tokio-rustls v0.24.1
+#12 204.0    Compiling native-tls v0.2.14
+#12 204.1    Compiling regex-syntax v0.8.5
+#12 204.8    Compiling aws-types v1.3.7
+#12 204.9    Compiling aws-credential-types v1.2.3
+#12 205.1    Compiling aws-smithy-http v0.62.1
+#12 205.5    Compiling serde_urlencoded v0.7.1
+#12 205.7    Compiling unicase v2.8.1
+#12 205.7    Compiling thiserror v2.0.12
+#12 205.8    Compiling zstd-safe v7.2.4
+#12 205.9    Compiling local-waker v0.1.4
+#12 205.9    Compiling alloc-no-stdlib v2.0.4
+#12 205.9    Compiling mime_guess v2.0.5
+#12 206.0    Compiling alloc-stdlib v0.2.2
+#12 206.0    Compiling aws-smithy-observability v0.1.3
+#12 206.0    Compiling thiserror-impl v2.0.12
+#12 206.2    Compiling regex-automata v0.4.9
+#12 206.3    Compiling hyper-rustls v0.24.2
+#12 206.5    Compiling hmac v0.12.1
+#12 206.6    Compiling sha2 v0.10.9
+#12 207.0    Compiling unicode-xid v0.2.6
+#12 207.1    Compiling iana-time-zone v0.1.63
+#12 207.2    Compiling adler2 v2.0.1
+#12 207.3    Compiling hex v0.4.3
+#12 207.5    Compiling anyhow v1.0.98
+#12 208.2    Compiling chrono v0.4.41
+#12 208.6    Compiling regex v1.11.1
+#12 208.7    Compiling tokio-native-tls v0.3.1
+#12 208.8    Compiling aws-sigv4 v1.3.3
+#12 209.9    Compiling miniz_oxide v0.8.9
+#12 210.8    Compiling derive_more-impl v2.0.1
+#12 211.1    Compiling brotli-decompressor v5.0.0
+#12 211.6    Compiling actix-utils v3.0.1
+#12 211.7    Compiling actix-rt v2.10.0
+#12 211.9    Compiling bytestring v1.4.0
+#12 212.0    Compiling cookie v0.16.2
+#12 212.1    Compiling actix-service v2.0.3
+#12 212.1    Compiling crc32fast v1.4.2
+#12 212.3    Compiling iri-string v0.7.8
+#12 212.5    Compiling uuid v1.17.0
+#12 212.8    Compiling thiserror v1.0.69
+#12 213.3    Compiling derive_more v2.0.1
+#12 213.4    Compiling flate2 v1.1.2
+#12 213.7    Compiling actix-router v0.5.3
+#12 214.0    Compiling brotli v8.0.1
+#12 214.0    Compiling typeshare v1.0.4
+#12 214.2    Compiling tower-http v0.6.6
+#12 214.2    Compiling hyper-tls v0.6.0
+#12 214.5    Compiling local-channel v0.1.5
+#12 215.0    Compiling aws-smithy-json v0.61.4
+#12 215.1    Compiling strum v0.27.2
+#12 215.3    Compiling actix-codec v0.5.2
+#12 215.4    Compiling thiserror-impl v1.0.69
+#12 215.5    Compiling async-trait v0.1.88
+#12 215.7    Compiling ident_case v1.0.1
+#12 215.9    Compiling data-encoding v2.9.0
+#12 215.9    Compiling language-tags v0.3.2
+#12 216.0    Compiling strsim v0.11.1
+#12 216.1    Compiling regex-syntax v0.6.29
+#12 216.3    Compiling utf-8 v0.7.6
+#12 216.5    Compiling foldhash v0.1.5
+#12 216.5    Compiling darling_core v0.20.11
+#12 216.7    Compiling shuttle-common v0.56.0
+#12 217.5    Compiling actix-web-codegen v4.3.0
+#12 218.3    Compiling regex-automata v0.1.10
+#12 218.8    Compiling actix-server v2.6.0
+#12 219.0    Compiling actix-macros v0.2.4
+#12 219.3    Compiling webpki-roots v0.26.11
+#12 219.4    Compiling headers-core v0.3.0
+#12 219.4    Compiling proc-macro-error-attr2 v2.0.0
+#12 219.4    Compiling impl-more v0.1.9
+#12 219.4    Compiling rustix v1.0.7
+#12 219.6    Compiling lazy_static v1.5.0
+#12 219.6    Compiling overload v0.1.1
+#12 219.7    Compiling nu-ansi-term v0.46.0
+#12 219.7    Compiling sharded-slab v0.1.7
+#12 219.8    Compiling proc-macro-error2 v2.0.1
+#12 220.0    Compiling headers v0.4.1
+#12 220.1    Compiling darling_macro v0.20.11
+#12 220.2    Compiling matchers v0.1.0
+#12 220.3    Compiling shuttle-ifc v0.56.0
+#12 220.4    Compiling tracing-serde v0.2.0
+#12 220.5    Compiling rand_core v0.6.4
+#12 220.5    Compiling tracing-log v0.2.0
+#12 220.6    Compiling thread_local v1.1.9
+#12 220.7    Compiling linux-raw-sys v0.9.4
+#12 220.8    Compiling urlencoding v2.1.3
+#12 220.9    Compiling strfmt v0.2.5
+#12 220.9    Compiling xmlparser v0.13.6
+#12 221.0    Compiling convert_case v0.4.0
+#12 221.1    Compiling shuttle-service v0.56.0
+#12 221.3    Compiling derive_more v0.99.20
+#12 221.3    Compiling aws-smithy-xml v0.60.10
+#12 221.7    Compiling aws-smithy-query v0.60.7
+#12 221.8    Compiling tracing-subscriber v0.3.19
+#12 221.8    Compiling darling v0.20.11
+#12 221.8    Compiling rand_chacha v0.3.1
+#12 221.9    Compiling shuttle-codegen v0.56.0
+#12 222.0    Compiling parse-size v1.1.0
+#12 222.0    Compiling actix-multipart-derive v0.7.0
+#12 222.5    Compiling rand v0.8.5
+#12 222.6    Compiling serde_plain v1.0.2
+#12 222.8    Compiling num_cpus v1.17.0
+#12 223.4    Compiling tempfile v3.20.0
+#12 223.7    Compiling dotenvy v0.15.7
+#12 226.3    Compiling zstd v0.13.3
+#12 226.5    Compiling actix-http v3.11.0
+#12 228.3    Compiling actix-web v4.11.0
+#12 229.9    Compiling rustls-webpki v0.103.3
+#12 230.8    Compiling actix-multipart v0.7.2
+#12 230.8    Compiling actix-cors v0.6.5
+#12 233.2    Compiling tokio-rustls v0.26.2
+#12 233.2    Compiling tungstenite v0.26.2
+#12 233.3    Compiling hyper-rustls v0.27.7
+#12 233.8    Compiling aws-smithy-http-client v1.0.6
+#12 233.9    Compiling reqwest v0.12.22
+#12 234.2    Compiling tokio-tungstenite v0.26.2
+#12 236.1    Compiling aws-smithy-runtime v1.8.3
+#12 236.3    Compiling reqwest-middleware v0.4.2
+#12 236.8    Compiling shuttle-api-client v0.56.0
+#12 237.1    Compiling shuttle-runtime v0.56.0
+#12 237.8    Compiling shuttle-actix-web v0.56.0
+#12 239.6    Compiling aws-runtime v1.5.8
+#12 241.1    Compiling aws-sdk-ssooidc v1.75.0
+#12 241.2    Compiling aws-sdk-sts v1.76.0
+#12 241.3    Compiling aws-sdk-sso v1.74.0
+#12 242.2    Compiling aws-sdk-rekognition v1.78.0
+#12 244.7    Compiling aws-config v1.8.1
+#12 269.0    Compiling actor_recogniser v0.1.0 (/app)
+#12 269.2 warning: fields `name` and `profile_path` are never read
+#12 269.2    --> src/main.rs:112:9
+#12 269.2     |
+#12 269.2 110 |     struct TmdbPersonResult {
+#12 269.2     |            ---------------- fields in this struct
+#12 269.2 111 |         id: u32,
+#12 269.2 112 |         name: String,
+#12 269.2     |         ^^^^
+#12 269.2 113 |         profile_path: Option<String>,
+#12 269.2     |         ^^^^^^^^^^^^
+#12 269.2     |
+#12 269.2     = note: `TmdbPersonResult` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+#12 269.2     = note: `#[warn(dead_code)]` on by default
+#12 269.2 
+#12 269.2 warning: field `id` is never read
+#12 269.2    --> src/main.rs:202:9
+#12 269.2     |
+#12 269.2 201 |     struct TmdbMovieCast {
+#12 269.2     |            ------------- field in this struct
+#12 269.2 202 |         id: u32,
+#12 269.2     |         ^^
+#12 269.2     |
+#12 269.2     = note: `TmdbMovieCast` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+#12 269.2 
+#12 269.2 warning: field `id` is never read
+#12 269.2    --> src/main.rs:216:9
+#12 269.2     |
+#12 269.2 215 |     struct TmdbTvCast {
+#12 269.2     |            ---------- field in this struct
+#12 269.2 216 |         id: u32,
+#12 269.2     |         ^^
+#12 269.2     |
+#12 269.2     = note: `TmdbTvCast` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+#12 269.2 
+#12 273.3 warning: `actor_recogniser` (bin "actor_recogniser") generated 3 warnings
+#12 273.3     Finished `release` profile [optimized] target(s) in 4m 33s
+#12 DONE 273.4s
+
+#13 [runtime 3/3] COPY --from=build /app/target/release/release/actor_recogniser /app/actor_recogniser
+#13 DONE 0.0s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.4s done
+#14 exporting manifest sha256:ffb73d7980ac30a54ba7423ac168a5ae4e4950615d50f4842ead79efec705c10 done
+#14 exporting config sha256:844d98edfae79620b12fbecf5bd694043d3c6d45466ca6931876c7a2ae9c1ac7 done
+#14 exporting attestation manifest sha256:fff11dd0b888301b66bb1705c0c44ee41bb6fc45799b8820fd37bfc07d6ce21c done
+#14 exporting manifest list sha256:07462c0ccd898dc6072ddfcc74f2251dab1fc20927526b44d6a419264f19bb59 done
+#14 naming to docker.io/library/your-rust-app:latest done
+#14 unpacking to docker.io/library/your-rust-app:latest 0.1s done
+#14 DONE 0.5s

@@ -49,7 +49,7 @@ onUnmounted(() => {
   /* align-items: center; */
   justify-content: space-between;
   padding: 0.75rem 0rem;
-  background: var(--color-background);
+  background-color: var(--color-background-static);
   min-height: 56px;
   z-index: 100;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);

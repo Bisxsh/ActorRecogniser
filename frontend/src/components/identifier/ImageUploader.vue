@@ -347,10 +347,13 @@ async function onSubmit() {
     } else {
       return
     }
-    const response = await fetch('http://localhost:8080/identify-actor', {
-      method: 'POST',
-      body: formData,
-    })
+    const response = await fetch(
+      'https://actor-recogniser-service-452650917730.europe-west2.run.app//identify-actor',
+      {
+        method: 'POST',
+        body: formData,
+      },
+    )
     if (!response.ok) {
       throw new Error('Failed to identify actor')
     }

@@ -1,0 +1,33 @@
+# Stage 1: Build the Rust application
+FROM rust:1.85.0-bookworm AS build
+
+WORKDIR /app
+COPY . .
+
+# Ensure the target directory exists for potential caches and faster builds
+RUN mkdir -p target/release
+
+# Build the application in release mode
+RUN cargo build --release --target-dir target/release
+
+# Stage 2: Create the final, smaller runtime image
+FROM debian:bookworm-slim AS runtime
+
+# Set a working directory for your application
+WORKDIR /app
+
+# --- NEW LINE ADDED HERE ---
+# Install libssl3 which provides libssl.so.3 required by some Rust crates (e.g., reqwest with TLS)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libssl3 ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+# -------------------------
+
+# Copy only the compiled binary from the 'build' stage
+COPY --from=build /app/target/release/release/actor_recogniser /app/actor_recogniser
+
+# Expose the port your application listens on (if it's a network service)
+EXPOSE 8080
+
+# Define the command to run your application
+CMD ["/app/actor_recogniser"]

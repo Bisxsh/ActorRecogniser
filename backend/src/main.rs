@@ -36,9 +36,19 @@ struct ActorMediaResponse {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| {
+    let allowed_origins_shared = vec![
+        "http://localhost:5173".to_string(),
+        "https://actor-recogniser.vercel.app".to_string(),
+    ];
+
+    HttpServer::new(move || {
+        let allowed_origins_for_worker = allowed_origins_shared.clone();
+
         let cors = Cors::default()
-            .allowed_origin("http://localhost:5173")
+            .allowed_origin_fn(move |origin, _req_head| {
+                let origin_str = origin.to_str().unwrap_or("");
+                allowed_origins_for_worker.contains(&origin_str.to_string())
+            })
             .allow_any_method()
             .allow_any_header()
             .max_age(3600);
@@ -52,7 +62,7 @@ async fn main() -> std::io::Result<()> {
             )
             .service(web::resource("/actor-media/{id}").route(web::get().to(actor_media)))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("0.0.0.0", 8080))?
     .run()
     .await
 }

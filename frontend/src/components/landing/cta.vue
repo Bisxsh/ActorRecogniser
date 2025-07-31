@@ -7,12 +7,14 @@
       </div>
       <h1>Free to use!</h1>
       <p>Try it out now!</p>
-      <button class="launch-app-btn" @click="$emit('launch-app')">LAUNCH APP</button>
+      <Coffee />
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Coffee from '../coffee.vue'
+</script>
 
 <style scoped>
 .hero-section {

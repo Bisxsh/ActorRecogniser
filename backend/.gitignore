@@ -1,0 +1,4 @@
+Secrets.toml
+target/
+.env
+.commands
