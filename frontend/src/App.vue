@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import Navbar from './components/landing/Navbar.vue'
+import Navbar from './components/landing/navbar.vue'
 import Lenis from 'lenis'
 
 let lenis: Lenis | null = null

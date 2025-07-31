@@ -4,12 +4,12 @@ const routes = [
   {
     path: '/',
     name: 'Landing',
-    component: () => import('./Pages/Landing.vue'),
+    component: () => import('./Pages/landing.vue'),
   },
   {
     path: '/app',
     name: 'Identifier',
-    component: () => import('./Pages/Identifier.vue'),
+    component: () => import('./Pages/identifier.vue'),
   },
 ]
 
