@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import ActorCard from './ActorCard.vue'
+import ActorCard from './actorcard.vue'
 import type { Actor } from '../../types'
 
 interface Props {

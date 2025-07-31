@@ -62,7 +62,7 @@
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Card from '../Card.vue'
+import Card from '../card.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 

@@ -24,11 +24,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ImageUploader from '../components/identifier/ImageUploader.vue'
-import ActorList from '../components/identifier/ActorList.vue'
-import ActorMediaSection from '../components/identifier/ActorMediaSection.vue'
-import MediaCard from '../components/identifier/MediaCard.vue'
-import ActorCard from '../components/identifier/ActorCard.vue'
+import ImageUploader from '../components/identifier/imageuploader.vue'
+import ActorList from '../components/identifier/actorlist.vue'
+import ActorMediaSection from '../components/identifier/actormediasection.vue'
 import type { ActorMatchesResponse, Actor, ActorMedia } from '../types'
 
 const result = ref<ActorMatchesResponse | null>(null)
