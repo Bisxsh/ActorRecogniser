@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useState } from "react";
 import MediaQuery, { useMediaQuery } from "react-responsive";
 
 export default function Hero() {
@@ -19,30 +20,30 @@ export default function Hero() {
       .from(introSplitText.chars, {
         yPercent: 20,
         opacity: 0,
-        duration: 1,
+        duration: 0.5,
         ease: "power1.inOut",
         stagger: 0.01,
         color: colours.primary,
       })
       .to("#intro-vertical-clip", {
         clipPath: "polygon(0% 45%, 100% 45%, 100% 50%, 0% 50%)",
-        delay: 0.25,
-        duration: 1,
+        delay: 0.1,
+        duration: 0.5,
         ease: "power1.in",
       })
       .to(
         "#intro-horizontal-clip",
         {
           clipPath: "polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)",
-          delay: 0.5,
+          delay: 0.1,
           duration: 0.5,
           ease: "power1.in",
         },
         "<"
       )
       .to("#intro-circle-clip", {
-        delay: 0.25,
-        duration: 0.35,
+        delay: 0.2,
+        duration: 0.25,
         clipPath: "circle(100% at 50% 50%)",
         filter: "blur(100px)",
         ease: "power4.in",
@@ -65,9 +66,9 @@ export default function Hero() {
       .to("#intro-container", { display: "none", duration: 0.25 }, "<");
   });
   return (
-    <>
+    <div className="relative w-full h-dvh">
       <div
-        className="h-full w-full flex-center relative absolute-center z-1"
+        className="h-screen w-full flex-center relative absolute-center z-1"
         id="intro-container"
       >
         <div
@@ -129,14 +130,19 @@ export default function Hero() {
           <p className="text-alt-text absolute bottom-0 left-0 m-8">
             Actor Recogniser <br className="md:hidden" />© 2025
           </p>
-          <DotLottieReact
-            className="xl:scale-100 lg:scale-80 md:scale-70 scale-60 absolute bottom-0 md:bottom-10 -right-30 md:-right-20"
-            src={process.env.LOTTIE_SCROLL_URL}
-            loop
-            autoplay
-          />
+          <div
+            className="absolute bottom-0 md:bottom-10 -right-10 md:right-0"
+            style={{ width: "100%", height: "auto", maxWidth: "200px" }}
+          >
+            <DotLottieReact
+              src={process.env.LOTTIE_SCROLL_URL}
+              loop={true}
+              autoplay={true}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

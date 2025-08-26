@@ -1,9 +1,15 @@
+import FirstSection from "@/components/landing/FirstSection";
 import Hero from "@/components/landing/Hero";
+import { SmoothScrollWrapper } from "@/components/SmoothScrollWrapper";
 
 const page = () => {
   return (
     <main>
-      <Hero />
+      <SmoothScrollWrapper>
+        <Hero />
+        <FirstSection />
+        <div className="h-dvh" />
+      </SmoothScrollWrapper>
     </main>
   );
 };
