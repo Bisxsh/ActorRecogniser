@@ -66,7 +66,7 @@ export default function Hero() {
       .to("#intro-container", { display: "none", duration: 0.25 }, "<");
   });
   return (
-    <div className="relative w-full h-dvh">
+    <div className="relative w-full h-dvh bg-bg p-4">
       <div
         className="h-screen w-full flex-center relative absolute-center z-1"
         id="intro-container"

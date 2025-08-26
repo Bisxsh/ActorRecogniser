@@ -39,7 +39,7 @@ const StatsSection = () => {
   });
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full flex-center flex-col text-text h-dvh bg-bg">
       <h1 className="text-h3 text-center" id="s-heading">
         POWERED BY THE LARGEST COMMUNITY DATABASE
       </h1>

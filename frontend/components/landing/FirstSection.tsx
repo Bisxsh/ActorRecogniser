@@ -56,7 +56,7 @@ const FirstSection = () => {
       });
   });
   return (
-    <div className="h-dvh flex-center flex-col">
+    <div className="h-dvh flex-center flex-col bg-bg">
       <div className="text-center">
         <h1 className="text-h1 height-one" id="f-header">
           YOU KNOW THE FACE. <br />
