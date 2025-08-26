@@ -17,7 +17,6 @@ const FirstSection = () => {
         start: "top center",
         end: "bottom 70%",
         scrub: true,
-        markers: true,
       },
     });
 
