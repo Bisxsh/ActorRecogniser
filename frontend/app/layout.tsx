@@ -55,7 +55,7 @@ export default function RootLayout({
       <body
         className={`${antonio.variable} ${proximaNova.variable} antialiased`}
       >
-        <div className="h-dvh w-dvw overflow-hidden p-4">{children}</div>
+        <div className="h-dvh w-dvw overflow-x-hidden p-4">{children}</div>
       </body>
     </html>
   );
