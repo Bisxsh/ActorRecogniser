@@ -1,68 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Sora', 'sans-serif'],
-      },
       colors: {
-        primary: '#8bd0cc',
-        'primary-dark': {
-          DEFAULT: 'hsl(219, 26%, 52%)',
-        },
-        'primary-light': {
-          DEFAULT: '#b3d9d7',
-        },
-        'background-static': {
-          DEFAULT: '#232528',
-        },
-        danger: {
-          DEFAULT: '#ed1c24',
-        },
-        text: {
-          DEFAULT: 'hsl(177, 80%, 90%)',
-        },
-        'text-dark': {
-          DEFAULT: 'hsl(177, 80%, 10%)',
-        },
-        'cyan-highlight': '#00eaff',
-        'cyan-highlight-alpha-02': 'rgba(0, 234, 255, 0.02)',
-        'cyan-highlight-alpha-04': 'rgba(0, 234, 255, 0.04)',
+        'bg': '#0b0f1b',
+        'text': '#ffffff',
+        'alt-text': '#4b4646',
+        'primary': '#d68a3d',
+        'secondary': '#eac392',
       },
-      boxShadow: {
-        'details-card':
-          'inset 0 1px 1px 0 rgba(0, 234, 255, 0.2), inset 0 24px 48px 0 rgba(0, 234, 255, 0.06)',
-        'details-card-hover':
-          'inset 0 1px 1px 0 rgba(0, 234, 255, 0.3), inset 0 24px 48px 0 rgba(0, 234, 255, 0.1)',
-      },
-      transitionDuration: {
-        450: '0.45s',
-      },
-      transitionTimingFunction: {
-        'custom-cubic': 'cubic-bezier(0.6, 0.6, 0, 1)',
-      },
-      aspectRatio: {
-        '2/1.5': '2 / 1.5',
-        '2/1.8': '2 / 1.8',
-      },
-      spacing: {
-        '2.5rem': '2.5rem',
-        '1.2rem': '1.2rem',
-        'section-gap': '160px',
+      fontFamily: {
+        sans: ['var(--font-antonio)', 'sans-serif'],
+        paragraph: ['var(--font-proximanova)', 'sans-serif'],
       },
       fontSize: {
-        '2.6rem': '2.6rem',
-        '1.25rem': '1.25rem',
-        '1.08rem': '1.08rem',
-      },
-      letterSpacing: {
-        '0.01em': '0.01em',
-      },
-      backgroundImage: {
-        'background-dynamic': 'linear-gradient(135deg, #10131a 80%, #181c27 100%)',
+        'pc-superheading': ['16rem', { lineHeight: 'auto' }],
+        'pc-supersub': ['3rem', { lineHeight: 'auto' }],
+        'pc-heading': ['8rem', { lineHeight: '90px' }],
+        'pc-paragraph': ['2.25rem', { lineHeight: '100px' }],
+        'pc-cta': ['2rem', { lineHeight: 'auto' }],
+        'pc-footer': ['1.25rem', { lineHeight: 'auto' }],
+        'mb-superheading': ['4rem', { lineHeight: 'auto' }],
+        'mb-heading': ['4rem', { lineHeight: '110px' }],
+        'mb-supersub': ['1.5rem', { lineHeight: 'auto' }],
+        'mb-paragraph': ['1.25rem', { lineHeight: 'auto' }],
+        'mb-cta': ['1.5rem', { lineHeight: 'auto' }],
+        'mb-footer': ['0.75rem', { lineHeight: 'auto' }],
       },
     },
   },
   plugins: [],
-}
+};

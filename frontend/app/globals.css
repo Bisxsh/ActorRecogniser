@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  /* Define custom colors as CSS variables */
+  --color-bg: #0b0f1b;
+  --color-text: #4b4646;
+  --color-primary: #d68a3d;
+  --color-secondary: #eac392;
+  --color-alt-text: #ffffff;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-antonio: var(--font-antonio);
+  --font-proxima: var(--font-proxima-nova);
+
+  --color-bg: var(--color-bg);
+  --color-text: var(--color-text);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-alt-text: var(--color-alt-text);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  font-family: var(--font-antonio), sans-serif;
+}
+
+p {
+  font-family: var(--font-proxima), sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@layer utilities {
+  /* Typography Scale Utilities */
+  .pc-h1 {
+    font-size: 16rem;
+    font-weight: 700;
+  }
+  .pc-h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-proxima), sans-serif;
+  }
+  .pc-h3 {
+    font-size: 8rem;
+    line-height: 90px;
+    font-weight: 700;
+  }
+  .pc-p {
+    font-size: 2.25rem;
+    line-height: 100px;
+    font-family: var(--font-proxima), sans-serif;
+  }
+  .pc-cta {
+    font-size: 2rem;
+  }
+  .pc-footer {
+    font-size: 1.25rem;
+    font-family: var(--font-proxima), sans-serif;
+  }
+
+  .mb-h1 {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  .mb-h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-proxima), sans-serif;
+  }
+  .mb-h3 {
+    font-size: 8rem;
+    line-height: 90px;
+    font-weight: 700;
+  }
+  .mb-h4 {
+    font-size: 1.5rem;
+
+    font-weight: 700;
+  }
+  .mb-p {
+    font-size: 1.25rem;
+
+    font-family: var(--font-proxima), sans-serif;
+  }
+  .mb-cta {
+    font-size: 1.5rem;
+  }
+  .mb-footer {
+    font-size: 0.75rem;
+
+    font-family: var(--font-proxima), sans-serif;
+  }
+
+  /* Custom Semantic Classes */
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-alt {
+    color: var(--color-alt-text);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .bg-background {
+    background-color: var(--color-background);
+  }
+}
