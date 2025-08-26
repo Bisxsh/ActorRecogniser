@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Antonio } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const proximaNova = localFont({
   src: [

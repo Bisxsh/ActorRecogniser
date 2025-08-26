@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import FinalCta from "@/components/landing/FinalCta";
 import FirstSection from "@/components/landing/FirstSection";
 import Hero from "@/components/landing/Hero";
 import StatsSection from "@/components/landing/StatsSection";
@@ -12,9 +14,8 @@ const page = () => {
         <FirstSection />
         <StatsSection />
         <StepsSection />
-        <div className="h-dvh" />
-        <div className="h-dvh" />
-        <div className="h-dvh" />
+        <FinalCta />
+        <Footer />
       </SmoothScrollWrapper>
     </main>
   );

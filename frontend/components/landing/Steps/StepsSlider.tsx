@@ -5,17 +5,21 @@ import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import VideoCard from "./StepsVideoCard";
 import { stepVideos } from "@/constants";
+import { useWindowDimensions } from "@/hooks/UseWindowDimensions";
 
 const StepsSlider = () => {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
   const sliderRef = useRef<HTMLDivElement>(null);
+  const windowDims = useWindowDimensions();
   const [scrollAmount, setScrollAmount] = useState(
-    (sliderRef.current?.scrollWidth || 0) - window.innerWidth
+    (sliderRef.current?.scrollWidth || 0) - (windowDims.width || 0)
   );
 
   useEffect(() => {
-    setScrollAmount((sliderRef.current?.scrollWidth || 0) - window.innerWidth);
-  }, [sliderRef.current?.scrollWidth]);
+    setScrollAmount(
+      (sliderRef.current?.scrollWidth || 0) - (windowDims.width || 0)
+    );
+  }, [sliderRef.current?.scrollWidth, windowDims.width]);
 
   useGSAP(() => {
     if (isTablet) return;
