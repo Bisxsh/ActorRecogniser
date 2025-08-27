@@ -7,17 +7,17 @@ import Footer from "@/components/Footer";
 const proximaNova = localFont({
   src: [
     {
-      path: "../public/fonts/proximanova_regular.otf",
+      path: "../../public/fonts/proximanova_regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/proximanova_bold.otf",
+      path: "../../public/fonts/proximanova_bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/proximanova_extrabold.otf",
+      path: "../../public/fonts/proximanova_extrabold.otf",
       weight: "800",
       style: "normal",
     },
