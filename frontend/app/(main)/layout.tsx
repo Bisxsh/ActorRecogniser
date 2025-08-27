@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Antonio } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "@/components/Footer";
+import Provider from "@/trpc/Provider";
 
 const proximaNova = localFont({
   src: [
@@ -56,7 +56,9 @@ export default function RootLayout({
       <body
         className={`${antonio.variable} ${proximaNova.variable} antialiased`}
       >
-        <div className="h-dvh w-dvw overflow-x-hidden">{children}</div>
+        <Provider>
+          <div className="h-dvh w-dvw overflow-x-hidden">{children}</div>
+        </Provider>
       </body>
     </html>
   );
