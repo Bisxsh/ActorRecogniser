@@ -5,8 +5,10 @@ import ClipRevealText from "../ClipRevealText";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const FinalCta = () => {
+  const router = useRouter();
   useGSAP(() => {
     const wordsSplit = SplitText.create("#footer-header", {
       type: "words",
@@ -48,7 +50,7 @@ const FinalCta = () => {
         <div className="h-8 lg:h-16" />
         <Button
           text={"Start Your Search"}
-          onClick={() => {}}
+          onClick={() => router.push("/app")}
           primary
           className="font-black"
         />

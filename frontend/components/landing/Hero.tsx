@@ -5,11 +5,13 @@ import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import MediaQuery, { useMediaQuery } from "react-responsive";
 
 export default function Hero() {
   const isSmall = useMediaQuery({ maxWidth: 1024 });
+  const router = useRouter();
 
   useGSAP(() => {
     const introTl = gsap.timeline();
@@ -124,7 +126,7 @@ export default function Hero() {
             Just take a picture.
           </h2>
           <div className="flex-1 items-center flex justify-center mb-10">
-            <Button text="Get Started" onClick={() => {}} />
+            <Button text="Get Started" onClick={() => router.push("/app")} />
           </div>
 
           <p className="text-alt-text absolute bottom-0 left-0 m-8">
