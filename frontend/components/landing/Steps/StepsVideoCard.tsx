@@ -52,7 +52,14 @@ const VideoCard = ({
 
   return (
     <div className="flex-center flex-col relative" ref={containerRef}>
-      <video src={video} autoPlay loop muted className="rounded-md" />
+      <video
+        src={video}
+        autoPlay
+        playsInline
+        loop
+        muted
+        className="rounded-md"
+      />
       <h1 className="text-h4">{title}</h1>
       <br />
       <p className="text-p text-center">{desc}</p>

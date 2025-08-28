@@ -108,6 +108,7 @@ export default function Hero() {
           autoPlay
           loop
           muted
+          playsInline
           className="absolute-center object-cover w-full h-full blur-xs"
         />
         <div className="gap-8 flex flex-col relative h-dvh pt-20 md:pt-0">
