@@ -4,19 +4,66 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CropIcon, RotateCcwIcon, UploadCloudIcon, XIcon } from "lucide-react";
 import Image from "next/image";
-import { type ChangeEvent, useCallback, useState } from "react";
+import { type ChangeEvent, useCallback, useRef, useState } from "react";
 import { ImageCrop } from "../ui/shadcn-io/image-crop";
 import { ImageCropApply } from "../ui/shadcn-io/image-crop/image-crop-apply";
 import { ImageCropContent } from "../ui/shadcn-io/image-crop/image-crop-content";
 import { ImageCropReset } from "../ui/shadcn-io/image-crop/image-crop-reset";
 import { Image as ImageIcon } from "@mynaui/icons-react";
 import { useMediaQuery } from "react-responsive";
+import { cn } from "@/lib/utils";
+import { useRecogniserStore } from "@/lib/stores";
+import { useMutation } from "@tanstack/react-query";
 
 const ImageUploader = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const isTouch = useMediaQuery({ query: "(hover: none)" });
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const { isUploading, setIsUploading, setIdentifiedActors } =
+    useRecogniserStore();
+
+  const identifyMutation = useMutation({
+    mutationFn: async (formData: FormData) => {
+      const res = await fetch("/api/identify", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Something went wrong");
+      }
+
+      return res.json();
+    },
+    onSuccess: (data) => {
+      setIdentifiedActors(data.matches);
+      setIsUploading(false);
+      handleReset();
+    },
+    onError: (error) => {
+      console.error("Upload failed:", error);
+      setIsUploading(false);
+      setIdentifiedActors(null);
+    },
+  });
+
+  const handleUpload = async () => {
+    if (croppedImage) {
+      setIsUploading(true);
+      const res = await fetch(croppedImage);
+      const blob = await res.blob();
+      const file = new File([blob], "cropped_image.png", { type: "image/png" });
+      const formData = new FormData();
+      formData.append("image", file);
+
+      identifyMutation.mutate(formData);
+    }
+  };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -43,7 +90,7 @@ const ImageUploader = () => {
     }
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
@@ -57,11 +104,16 @@ const ImageUploader = () => {
       } as unknown as React.ChangeEvent<HTMLInputElement>;
       handleFileChange(event);
     }
-  };
+  }, []);
 
   const handleReset = () => {
     setSelectedFile(null);
     setCroppedImage(null);
+    setIsUploading(false);
+  };
+
+  const handleThumbnailClick = () => {
+    fileInputRef.current?.click();
   };
 
   if (!selectedFile) {
@@ -74,15 +126,18 @@ const ImageUploader = () => {
             id="image-upload"
             onChange={handleFileChange}
             className="hidden"
+            ref={fileInputRef}
           />
           <div
             onDragOver={handleDragOver}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            className={`h-64 cursor-pointer gap-4 rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted ${
+            onClick={handleThumbnailClick}
+            className={cn(
+              "h-64 cursor-pointer gap-4 rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted",
               isDragging && "border-primary/50 bg-primary/5"
-            }`}
+            )}
           >
             <label
               htmlFor="image-upload"
@@ -112,8 +167,6 @@ const ImageUploader = () => {
           aspect={1}
           file={selectedFile}
           maxImageSize={1024 * 1024 * 3} // 3MB
-          // onChange={console.log}
-          // onComplete={console.log}
           onCrop={setCroppedImage}
         >
           <ImageCropContent className="max-w-md" />
@@ -158,21 +211,33 @@ const ImageUploader = () => {
           type="button"
           variant="outline"
           className="w-full col-span-2"
+          disabled={isUploading}
         >
           <XIcon className="size-4" />
         </Button>
         <Button
-          onClick={handleReset}
+          onClick={handleUpload}
           size="icon"
           type="button"
-          variant={"default"}
+          variant="default"
           className="w-full col-span-3"
+          disabled={isUploading}
         >
-          <UploadCloudIcon className="size-4" />
-          <p className="text-xs">Use image</p>
+          {isUploading ? (
+            <p>Uploading...</p>
+          ) : (
+            <UploadCloudIcon className="size-4" />
+          )}
+          <p className="text-xs">{isUploading ? "..." : "Use image"}</p>
         </Button>
+        {identifyMutation.isError && (
+          <p className="text-sm text-red-500 col-span-5 text-center">
+            Upload failed: {identifyMutation.error.message}
+          </p>
+        )}
       </div>
     </div>
   );
 };
+
 export default ImageUploader;
