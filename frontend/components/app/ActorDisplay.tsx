@@ -88,7 +88,7 @@ export default function ActorDisplay() {
                       alt={media.title}
                       width={100}
                       height={150}
-                      className="mt-2 rounded-lg"
+                      className="mt-2 rounded-lg w-full"
                     />
                   )}
                 </div>

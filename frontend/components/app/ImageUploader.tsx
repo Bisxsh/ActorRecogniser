@@ -236,7 +236,7 @@ const ImageUploader = () => {
           ) : (
             <UploadCloudIcon className="size-4" />
           )}
-          <p className="text-xs">{isUploading ? "..." : "Use image"}</p>
+          <p className="text-xs">{isUploading ? "" : "Use image"}</p>
         </Button>
         {identifyMutation.isError && (
           <p className="text-sm text-red-500 col-span-5 text-center">
