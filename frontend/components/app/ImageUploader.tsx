@@ -125,10 +125,6 @@ const ImageUploader = () => {
     setIsUploading(false);
   };
 
-  const handleThumbnailClick = () => {
-    fileInputRef.current?.click();
-  };
-
   if (!selectedFile) {
     return (
       <div className="gap-8 lg:gap-16 w-full">
@@ -146,7 +142,6 @@ const ImageUploader = () => {
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            onClick={handleThumbnailClick}
             className={cn(
               "h-64 cursor-pointer gap-4 rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted",
               isDragging && "border-primary/50 bg-primary/5"
