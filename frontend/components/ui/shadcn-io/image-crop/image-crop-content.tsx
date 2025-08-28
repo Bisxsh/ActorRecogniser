@@ -4,6 +4,7 @@ import { type CSSProperties } from "react";
 import ReactCrop from "react-image-crop";
 import { cn } from "@/lib/utils";
 import { useImageCrop } from ".";
+import Image from "next/image";
 
 export type ImageCropContentProps = {
   style?: CSSProperties;

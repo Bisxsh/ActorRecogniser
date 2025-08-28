@@ -6,7 +6,6 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import MediaQuery, { useMediaQuery } from "react-responsive";
 
 export default function Hero() {

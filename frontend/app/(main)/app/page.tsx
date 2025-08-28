@@ -4,16 +4,15 @@ import ActorDisplay from "@/components/app/ActorDisplay";
 import AppCard from "@/components/app/AppCard";
 import ImageUploader from "@/components/app/ImageUploader";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { CloudIcon, CloudUpload, CropIcon, ScrollIcon } from "lucide-react";
+import { CloudIcon, CropIcon, ScrollIcon } from "lucide-react";
 
 const Page = () => {
-  const handleFinalCta = () => {
-    // Scroll to top
-    if (typeof window === "undefined") return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    document.getElementById("image-upload")?.click();
-  };
+  // const handleFinalCta = () => {
+  //   // Scroll to top
+  //   if (typeof window === "undefined") return;
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  //   document.getElementById("image-upload")?.click();
+  // };
 
   return (
     <div className="bg-bg p-8 lg:p-16 min-h-screen">
