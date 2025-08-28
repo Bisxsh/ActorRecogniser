@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export type apiIdentifiedActorsType = {
+  id: string;
+  name: string;
+  image_url: string;
+  match_confidence: number;
+};
+
 export const identifiedActorSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),

@@ -14,6 +14,7 @@ import { useMediaQuery } from "react-responsive";
 import { cn } from "@/lib/utils";
 import { useRecogniserStore } from "@/lib/stores";
 import { useMutation } from "@tanstack/react-query";
+import { apiIdentifiedActorsType } from "@/lib/schemas";
 
 const ImageUploader = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -23,8 +24,12 @@ const ImageUploader = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const { isUploading, setIsUploading, setIdentifiedActors } =
-    useRecogniserStore();
+  const {
+    isUploading,
+    setIsUploading,
+    setIdentifiedActors,
+    setSelectedActorId,
+  } = useRecogniserStore();
 
   const identifyMutation = useMutation({
     mutationFn: async (formData: FormData) => {
@@ -41,9 +46,15 @@ const ImageUploader = () => {
       return res.json();
     },
     onSuccess: (data) => {
-      setIdentifiedActors(data.matches);
+      const formattedMatches = data.matches.map(
+        (match: apiIdentifiedActorsType) => ({
+          ...match,
+          matchConfidence: match.match_confidence,
+          imageUrl: match.image_url,
+        })
+      );
+      setIdentifiedActors(formattedMatches);
       setIsUploading(false);
-      handleReset();
     },
     onError: (error) => {
       console.error("Upload failed:", error);
@@ -107,6 +118,8 @@ const ImageUploader = () => {
   }, []);
 
   const handleReset = () => {
+    setIdentifiedActors(null);
+    setSelectedActorId(null);
     setSelectedFile(null);
     setCroppedImage(null);
     setIsUploading(false);

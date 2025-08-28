@@ -37,11 +37,11 @@ export const appRouter = router({
     }),
 
   getMedia: publicProcedure
-    .input(z.object({ actorId: z.string().min(1) }))
+    .input(z.object({ actorId: z.coerce.string().min(1) }))
     .query(async (opts) => {
       try {
         const res = await fetch(
-          `${process.env.SERVICE_API_URL}/actor-media?id=${opts.input.actorId}`
+          `${process.env.SERVICE_API_URL}/actor-media/${opts.input.actorId}`
         );
 
         if (!res.ok) {

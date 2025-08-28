@@ -5,7 +5,14 @@ const nextConfig: NextConfig = {
   env: {
     LOTTIE_SCROLL_URL: process.env.LOTTIE_SCROLL_URL,
   },
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: "image.tmdb.org",
+        protocol: "https",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
