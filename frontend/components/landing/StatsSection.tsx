@@ -49,8 +49,8 @@ const StatsSection = () => {
           className="flex-1 w-fit grid grid-cols-1 gap-4 md:grid-cols-3 md:max-w-[60vw] lg:mt-10 max-w-50vw justify-items-center justify-center"
         >
           <Card title="👨‍🎤" description="4,000,000+" byline="ACTORS" />
-          <Card title="📺" description="200,000+" byline="ACTORS" />
-          <Card title="🎬" description="1,000,000+" byline="ACTORS" />
+          <Card title="📺" description="200,000+" byline="SHOWS" />
+          <Card title="🎬" description="1,000,000+" byline="MOVIES" />
         </div>
       </div>
     </div>
