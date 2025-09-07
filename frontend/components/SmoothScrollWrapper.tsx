@@ -13,9 +13,19 @@ export const SmoothScrollWrapper = ({
 }: {
   children: React.ReactNode;
 }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     ScrollTrigger.normalizeScroll(true);
-  });
+
+    const smoother = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+    });
+
+    return () => {
+      smoother.kill();
+      ScrollTrigger.normalizeScroll(false);
+    };
+  }, []);
 
   const wrapperRef = useRef(null);
 
