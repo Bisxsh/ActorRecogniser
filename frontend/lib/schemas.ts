@@ -35,3 +35,17 @@ export type IdentifyActorsResponse = z.infer<
 >;
 export type Media = z.infer<typeof mediaSchema>;
 export type ActorMedia = z.infer<typeof actorMediaSchema>;
+
+export enum SortType {
+  RELEVANCE = "RELEVANCE",
+  DATE_ASC = "DATE_ASC",
+  DATE_DESC = "DATE_DESC",
+  TITLE_ASC = "TITLE_ASC",
+  TITLE_DESC = "TITLE_DESC",
+}
+
+export enum FilterType {
+  MOVIE = "MOVIE",
+  SHOW = "SHOW",
+  ALL = "ALL",
+}

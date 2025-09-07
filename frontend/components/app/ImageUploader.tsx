@@ -194,8 +194,17 @@ const ImageUploader = () => {
               <p className="text-xs">Reset</p>
             </ImageCropReset>
             <ImageCropApply className="col-span-11 sm:col-span-4 w-full">
-              <CropIcon />
-              <p className="text-xs">Crop</p>
+              <Button
+                onClick={handleUpload}
+                size="icon"
+                type="button"
+                variant="default"
+                className="w-full col-span-3"
+                disabled={isUploading}
+              >
+                <CropIcon />
+                <p className="text-xs">Crop</p>
+              </Button>
             </ImageCropApply>
           </div>
         </ImageCrop>
