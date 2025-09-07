@@ -193,7 +193,10 @@ const ImageUploader = () => {
               <RotateCcwIcon />
               <p className="text-xs">Reset</p>
             </ImageCropReset>
-            <ImageCropApply className="col-span-11 sm:col-span-4 w-full">
+            <ImageCropApply
+              className="col-span-11 sm:col-span-4 w-full"
+              asChild
+            >
               <Button
                 onClick={handleUpload}
                 size="icon"

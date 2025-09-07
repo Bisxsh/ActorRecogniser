@@ -55,7 +55,7 @@ const MediaDisplay = () => {
   return (
     <>
       {selectedActorId && (
-        <div className="mt-8">
+        <div className="mt-8 lg:px-16">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold text-alt-text">
               Media for Selected Actor
@@ -89,7 +89,7 @@ const MediaDisplay = () => {
           ) : isError ? (
             <p className="text-red-500 mt-4">Error fetching media.</p>
           ) : mediaData && mediaData.media.length > 0 ? (
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
               {filteredMedia.map((media, index) => (
                 <div
                   key={index}
