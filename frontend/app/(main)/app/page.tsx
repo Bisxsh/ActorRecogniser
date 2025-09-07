@@ -5,6 +5,7 @@ import AppCard from "@/components/app/AppCard";
 import ImageUploader from "@/components/app/ImageUploader";
 import MediaDisplay from "@/components/app/MediaDisplay";
 import Footer from "@/components/Footer";
+import InstallPrompt from "@/components/InstallPrompt";
 import { Navbar } from "@/components/ui/shadcn-io/navbar-01";
 import { CloudIcon, CropIcon, ScrollIcon } from "lucide-react";
 
@@ -59,6 +60,7 @@ const Page = () => {
 Upload your Image
 </Button> */}
           <Footer />
+          <InstallPrompt />
         </div>
       </div>
     </>

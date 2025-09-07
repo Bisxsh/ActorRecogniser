@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  appleWebApp: {
+    title: "ActorReco",
+  },
 };
 
 export default function RootLayout({
