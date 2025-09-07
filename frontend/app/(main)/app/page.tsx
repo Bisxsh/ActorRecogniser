@@ -3,20 +3,19 @@
 import ActorDisplay from "@/components/app/ActorDisplay";
 import AppCard from "@/components/app/AppCard";
 import ImageUploader from "@/components/app/ImageUploader";
+import MediaDisplay from "@/components/app/MediaDisplay";
 import Footer from "@/components/Footer";
-import { CloudIcon, CropIcon, ScrollIcon } from "lucide-react";
+import { useRecogniserStore } from "@/lib/stores";
+import { trpc } from "@/trpc/client";
+import { CloudIcon, CropIcon, Loader2Icon, ScrollIcon } from "lucide-react";
+import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
+import { isError } from "util";
 
 const Page = () => {
-  // const handleFinalCta = () => {
-  //   // Scroll to top
-  //   if (typeof window === "undefined") return;
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  //   document.getElementById("image-upload")?.click();
-  // };
-
   return (
     <div className="bg-bg p-8 lg:p-16 min-h-screen">
-      <div className="bg-alt-text rounded-md gap-8 p-8 lg:gap-16 lg:p-16 flex-center flex-col">
+      <div className="bg-alt-text rounded-md gap-8 p-8 lg:gap-16 lg:p-16 flex-center flex-col mt-16">
         <div className="text-center gap-2 lg:gap-4 flex flex-col items-center">
           <h1 className="text-h3">Upload an Image</h1>
           <p className="text-p">Take, upload or paste a picture</p>
@@ -26,9 +25,11 @@ const Page = () => {
         <ActorDisplay />
       </div>
 
-      <div className="flex-center flex-col gap-8 mt-8 lg:gap-16 lg:mt-16">
+      <MediaDisplay />
+
+      <div className="flex-center flex-col gap-8 mt-16 lg:gap-16">
         <h1 className="text-h3 text-center text-alt-text">HOW IT WORKS</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 lg:mt-16 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:mt-16 lg:gap-16">
           <AppCard
             icon={<CloudIcon />}
             title={"Upload an image"}
