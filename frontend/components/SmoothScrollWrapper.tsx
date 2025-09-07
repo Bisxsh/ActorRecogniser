@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
+ScrollTrigger.normalizeScroll(true);
 
 export const SmoothScrollWrapper = ({
   children,
