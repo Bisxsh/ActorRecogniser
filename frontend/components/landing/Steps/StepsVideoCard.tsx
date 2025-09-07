@@ -62,11 +62,15 @@ const VideoCard = ({
       />
       <h1 className="text-h4">{title}</h1>
       <br />
-      <p className="text-p text-center">{desc}</p>
+      <p className={`text-p text-center ${isMobile ? "max-w-[70vw]" : ""}`}>
+        {desc}
+      </p>
+      {/* Bodge for isMobile rerendering */}
+      <p className="hidden">{isMobile ? "Mobile" : "Desktop"}</p>
       <Image
         src={image}
         alt=""
-        className={`step-img rounded-md absolute ${imageClassName}`}
+        className={`rounded-md absolute ${imageClassName}`}
         width={isMobile ? 100 : 200}
         height={isMobile ? 100 : 200}
         ref={imgRef}

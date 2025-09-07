@@ -18,7 +18,7 @@ const FirstSectionAnimations = () => {
       scrollTrigger: {
         trigger: "#f-header",
         start: "top center",
-        end: "bottom 70%",
+        end: "bottom center",
         scrub: true,
       },
     });

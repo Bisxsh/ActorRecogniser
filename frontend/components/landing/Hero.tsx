@@ -124,7 +124,7 @@ export default function Hero() {
         />
         {isClient && (
           <div className="gap-8 flex flex-col relative h-dvh pt-20 md:pt-0">
-            <h1 className="text-h1 text-center">WHO&apos;S THAT ACTOR</h1>
+            <h1 className="text-h1 text-center">WHO&apos;S THAT ACTOR?</h1>
             <h2 className="text-h2 text-center text-text">
               Find any actor in any <br />
               movie or show. <br />
@@ -145,7 +145,7 @@ export default function Hero() {
               Actor Recogniser <br className="md:hidden" />© 2025
             </p>
             <div
-              className="absolute bottom-0 md:bottom-10 -right-10 md:right-0"
+              className="absolute bottom-10 -right-15 md:right-0"
               style={{ width: "100%", height: "auto", maxWidth: "200px" }}
             >
               <DotLottieReact

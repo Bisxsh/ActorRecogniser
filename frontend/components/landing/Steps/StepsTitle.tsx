@@ -17,7 +17,7 @@ const StepsTitle = () => {
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: ".steps-section",
-        start: "top 30%",
+        start: "top center",
       },
     });
     gsap.to(".steps-text-scroll", {
@@ -25,7 +25,7 @@ const StepsTitle = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       scrollTrigger: {
         trigger: ".steps-section",
-        start: "top 10%",
+        start: "top 40%",
       },
     });
     gsap.from(secondTextSplit.chars, {
@@ -34,7 +34,7 @@ const StepsTitle = () => {
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: ".steps-section",
-        start: "top 1%",
+        start: "top 35%",
       },
     });
   });

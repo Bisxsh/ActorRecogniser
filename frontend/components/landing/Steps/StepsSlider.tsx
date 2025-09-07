@@ -85,10 +85,6 @@ const StepsSlider = () => {
             key={video.title}
             className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] h-80 flex-none`}
           >
-            {/* <img
-              src={`/images/${video.color}-bg.svg`}
-              className="absolute bottom-0"
-            /> */}
             <VideoCard
               title={video.title}
               video={video.video}
@@ -96,13 +92,6 @@ const StepsSlider = () => {
               image={video.image}
               imageClassName={video.imgClass}
             />
-
-            {/* <img
-              src={`/images/${video.color}-elements.webp`}
-              className="absolute md:top-0 md:bottom-auto bottom-10 w-full"
-            />
-
-            <h1>{video.name}</h1> */}
           </div>
         ))}
       </div>
