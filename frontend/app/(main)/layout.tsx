@@ -32,15 +32,15 @@ const antonio = Antonio({
 });
 
 export const metadata: Metadata = {
-  title: "Actor Identifier | Instantly Identify Film & TV Cast",
+  title: "Actor Recogniser | Instantly Identify Film & TV Cast",
   description:
     "Instantly identify actors from any movie or TV show. Simply upload a picture and discover their name and full filmography. Your essential guide to the cast and crew.",
   openGraph: {
-    title: "Actor Identifier",
+    title: "Actor Recogniser",
     description:
       "Instantly identify actors from film and TV with just a photo.",
     url: "https://actor-recogniser.vercel.app/",
-    siteName: "Actor Identifier",
+    siteName: "Actor Recogniser",
     locale: "en_US",
     type: "website",
   },
