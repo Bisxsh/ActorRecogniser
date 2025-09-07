@@ -69,3 +69,30 @@ export function applySortFilter(
 
   return media;
 }
+
+export function printTag() {
+  const nameAscii = `
+ /$$$$$$$  /$$$$$$  /$$$$$$  /$$$$$$$$  /$$$$$$  /$$   /$$
+| $$__  $$|_  $$_/ /$$__  $$| $$_____/ /$$__  $$| $$  | $$
+| $$  \ $$  | $$  | $$  \\__/| $$      | $$  \\__/| $$  | $$
+| $$$$$$$   | $$  |  $$$$$$ | $$$$$   |  $$$$$$ | $$$$$$$$
+| $$__  $$  | $$   \\____  $$| $$__/    \\____  $$| $$__  $$
+| $$  \\ $$  | $$   /$$  \\ $$| $$       /$$  \\ $$| $$  | $$
+| $$$$$$$/ /$$$$$$|  $$$$$$/| $$$$$$$$|  $$$$$$/| $$  | $$
+|_______/ |______/ \\______/ |________/ \\______/ |__/  |__/
+`;
+
+  const message =
+    "Why snoop around? You can check this project out on my github 👀";
+  const link = "https://github.com/Bisxsh";
+
+  console.log(
+    `%c${nameAscii}`,
+    "color: #4CAF50; font-family: monospace; font-size: 16px;"
+  );
+  console.log(
+    `%c${message}\n%c${link}`,
+    "color: #1E88E5; font-family: sans-serif; font-size: 14px;",
+    "color: #E91E63; font-family: monospace; font-size: 14px;"
+  );
+}

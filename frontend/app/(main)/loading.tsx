@@ -17,7 +17,6 @@ const Loading = () => {
           text="Launch App"
           onClick={() => {
             router.push("/app");
-            console.log("Navigating to /app");
           }}
           className="bg-text"
           primary

@@ -5,8 +5,10 @@ import Hero from "@/components/landing/Hero";
 import StatsSection from "@/components/landing/StatsSection";
 import StepsSection from "@/components/landing/StepsSection";
 import { SmoothScrollWrapper } from "@/components/SmoothScrollWrapper";
+import { printTag } from "@/lib/utils";
 
 const page = () => {
+  printTag();
   return (
     <main>
       <SmoothScrollWrapper>

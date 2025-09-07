@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CropIcon, RotateCcwIcon, UploadCloudIcon, XIcon } from "lucide-react";
 import Image from "next/image";
-import { type ChangeEvent, useCallback, useRef, useState } from "react";
+import {
+  type ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { ImageCrop } from "../ui/shadcn-io/image-crop";
 import { ImageCropApply } from "../ui/shadcn-io/image-crop/image-crop-apply";
 import { ImageCropContent } from "../ui/shadcn-io/image-crop/image-crop-content";
@@ -20,6 +26,7 @@ const ImageUploader = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [pasteError, setPasteError] = useState<string | null>(null);
   const isTouch = useMediaQuery({ query: "(hover: none)" });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -62,6 +69,66 @@ const ImageUploader = () => {
       setIdentifiedActors(null);
     },
   });
+
+  useEffect(() => {
+    document.onpaste = function (event) {
+      const items = event.clipboardData?.items;
+
+      if (!items) {
+        setPasteError("No image found in clipboard");
+        setTimeout(() => setPasteError(null), 2000);
+        return;
+      }
+
+      for (const item of items) {
+        if (item.kind === "file") {
+          const file = item.getAsFile();
+
+          if (file && file.type.startsWith("image/")) {
+            setSelectedFile(file);
+            return;
+          }
+        }
+      }
+
+      if (!selectedFile) {
+        setPasteError("No image found in clipboard");
+        setTimeout(() => setPasteError(null), 2000);
+      }
+    };
+    return () => {
+      document.onpaste = null;
+    };
+  }, []);
+
+  const handlePaste = async () => {
+    try {
+      const clipboardItems = await navigator.clipboard.read();
+      for (const item of clipboardItems) {
+        if (
+          item.types.includes("image/png") ||
+          item.types.some((type) => type.startsWith("image/"))
+        ) {
+          const blob = await item.getType("image/png");
+          if (blob) {
+            const file = new File([blob], "pasted-image.png", {
+              type: blob.type,
+            });
+
+            setSelectedFile(file);
+            return;
+          }
+        }
+      }
+      setPasteError("No image found in clipboard");
+      setTimeout(() => setPasteError(null), 2000);
+    } catch (error) {
+      console.error("Failed to read clipboard contents:", error);
+      alert(
+        "Permission to read the clipboard was denied or no image was found."
+      );
+    }
+  };
 
   const handleUpload = async () => {
     if (croppedImage) {
@@ -127,7 +194,7 @@ const ImageUploader = () => {
 
   if (!selectedFile) {
     return (
-      <div className="gap-8 lg:gap-16 w-full">
+      <div className="gap-8 lg:gap-16 w-full mb-6">
         <div className="items-start space-y-2">
           <Input
             accept="image/*"
@@ -163,6 +230,21 @@ const ImageUploader = () => {
                 </p>
               </div>
             </label>
+
+            <div onClick={handlePaste}>
+              <p className="text-xs text-muted-foreground font-proxima place-self-center mt-4">
+                or{" "}
+                <span className="font-bold underline">
+                  {isTouch ? "tap" : "click"} here
+                </span>{" "}
+                to upload from clipboard
+              </p>
+            </div>
+            {pasteError && (
+              <p className="text-xs text-red-500 font-proxima place-self-center mt-2">
+                {pasteError}
+              </p>
+            )}
           </div>
         </div>
       </div>

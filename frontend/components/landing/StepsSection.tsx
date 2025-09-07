@@ -28,7 +28,6 @@ const StepsSection = () => {
         (titleRef.current?.scrollWidth || 0)
     );
   }, [sliderRef.current?.scrollWidth, windowDims.width]);
-  console.log(scrollAmount);
 
   useGSAP(() => {
     if (isTablet) return;
