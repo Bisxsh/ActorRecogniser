@@ -115,7 +115,7 @@ export default function Hero() {
       <div className="relative w-full h-full" id="hero-main-container">
         <div className="absolute inset-0 noise z-1 pointer-events-none" />
         <video
-          src={"/videos/hero.mp4"}
+          src={"/videos/hero.webm"}
           autoPlay
           loop
           muted

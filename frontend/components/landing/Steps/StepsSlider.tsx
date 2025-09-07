@@ -1,11 +1,13 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { lazy, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import VideoCard from "./StepsVideoCard";
+// import VideoCard from "./StepsVideoCard";
 import { stepVideos } from "@/constants";
 import { useWindowDimensions } from "@/hooks/UseWindowDimensions";
+
+const VideoCard = lazy(() => import("./StepsVideoCard"));
 
 const StepsSlider = () => {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
