@@ -73,11 +73,12 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center justify-center text-center mb-[3vw] py-4">
       <Image
-        className="aspect-square w-16"
+        className="aspect-square w-16 cursor-pointer"
         src="/images/logo.png"
         alt="logo"
         width={64}
         height={64}
+        onClick={() => window.open("https://bisesh.dev", "_blank")?.focus()}
       />
 
       <div className="flex items-center justify-center my-5">
