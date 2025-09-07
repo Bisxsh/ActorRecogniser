@@ -28,7 +28,7 @@ export const Navbar = () => {
             >
               <div className="text-2xl" onClick={() => router.push("/")}>
                 <Image
-                  src="/images/logo.svg"
+                  src="/images/Logo.svg"
                   alt="Logo"
                   width={32}
                   height={32}
