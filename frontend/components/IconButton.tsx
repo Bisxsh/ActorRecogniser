@@ -17,9 +17,10 @@ export default function IconButton({
     <Button
       variant="secondary"
       size="icon"
-      className={`size-8 ${className}`}
+      className={`size-8 ${className} p-1.5`}
       onClick={onClick}
       disabled={disabled}
+      asChild
     >
       {icon}
     </Button>

@@ -13,9 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
-
-module.exports = {
   async headers() {
     return [
       {
