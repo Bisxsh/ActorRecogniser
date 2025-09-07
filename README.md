@@ -1,6 +1,6 @@
 Actor Recogniser
 
-![App Landing Page GIF](/readme2.gif)
+![App Landing Page GIF](/readme.gif)
 
 **A web application for instant actor identification and filmography discovery.**
 
