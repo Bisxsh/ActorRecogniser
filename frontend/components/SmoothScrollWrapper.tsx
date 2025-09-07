@@ -1,20 +1,22 @@
-// components/scroll-smoother-wrapper.tsx
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
-ScrollTrigger.normalizeScroll(true);
 
 export const SmoothScrollWrapper = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
+  useEffect(() => {
+    ScrollTrigger.normalizeScroll(true);
+  });
+
   const wrapperRef = useRef(null);
 
   useLayoutEffect(() => {
