@@ -202,7 +202,7 @@ const ImageUploader = () => {
                 size="icon"
                 type="button"
                 variant="default"
-                className="w-full col-span-3"
+                className="w-full col-span-11 sm:col-span-4"
                 disabled={isUploading}
               >
                 <CropIcon />
