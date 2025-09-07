@@ -53,14 +53,9 @@ const Page = () => {
             />
           </div>
 
-          {/* <h1 className="text-h3 text-center text-alt-text">TRY IT OUT NOW!</h1>
-
-<Button className="p-8" onClick={handleFinalCta}>
-<CloudUpload className="mr-2" width={100} />
-Upload your Image
-</Button> */}
-          <Footer />
           <InstallPrompt />
+
+          <Footer />
         </div>
       </div>
     </>

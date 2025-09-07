@@ -1,8 +1,11 @@
+"use client";
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
+  const isTouchDevice = useMediaQuery({ query: "(hover: none)" });
 
   useEffect(() => {
     setIsIOS(
@@ -17,12 +20,16 @@ export default function InstallPrompt() {
     return null; // Don't show install button if already installed
   }
 
+  if (!isIOS && !isTouchDevice) {
+    return null; // Only show on iOS or touch devices
+  }
+
   return (
     <div>
-      <h3>Install App</h3>
-      <button>Add to Home Screen</button>
+      <h1 className="text-h3 text-center text-alt-text">Install App</h1>
+      {!isIOS && <button>Add to Home Screen</button>}
       {isIOS && (
-        <p>
+        <p className="text-p text-alt-text text-center my-4">
           To install this app on your iOS device, tap the share button
           <span role="img" aria-label="share icon">
             {" "}
